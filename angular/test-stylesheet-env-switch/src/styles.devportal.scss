@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+
+$theme-colors: (
+    "primary":    #1c1c1c,
+    "secondary":  #757b6e,
+    "success":    #0d77ae,
+    "info":       #bbbbbb,
+    "warning":    #e4c70e,
+    "danger":     #951026,
+    "light":      #757b6e,
+    "dark":       #1c1c1c
+  );
+
+ /*
+ Don't forget to import boostrap to apply new color theme
+ */
+ @import '../node_modules/bootstrap/scss/bootstrap.scss';
