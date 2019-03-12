@@ -1,4 +1,6 @@
-const tracking =[
+import { TrackRecord } from './track-record';
+
+export const TRACKING: TrackRecord [] =[
   {
     'UTCDateTime': '2019-Mar-11 2358',
     'UnixUTCTimestamp': 1552348684,
@@ -22201,7 +22203,6 @@ const tracking =[
     'barometer': 'NULL',
     'airTemp': 'NULL',
     'dewPoint': 'NULL',
-    'waterTemp': 'NULL',
-    '': ''
+    'waterTemp': 'NULL'
   }
-]
+];

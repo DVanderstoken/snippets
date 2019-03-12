@@ -1,4 +1,4 @@
-export interface trackRecord {
+export interface TrackRecord {
   UTCDateTime: string;
   UnixUTCTimestamp: number;
   lat: number;
