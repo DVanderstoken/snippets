@@ -1,4 +1,4 @@
-export class Commune {
+export interface Commune {
     codeInsee: string;
     codePostal: string;
     nom: string;
