@@ -40,7 +40,7 @@ export class ShipTrackingService implements OnInit {
     const sortedArray = this.finalDatas[0].tracking.sort((one, another) =>
       one.UnixUTCTimestamp > another.UnixUTCTimestamp ? 1 : -1
     );
-
+    // send one tracking record every 1000 ms
     return Observable.from(sortedArray).pipe(concatMap(entry => of(entry).pipe(delay(1000))));
   }
 
