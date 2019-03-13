@@ -1,4 +1,6 @@
-[
+import { TrackRecord } from './tracking-records.model';
+
+export const AMBORELLA: TrackRecord [] = [
   {
     "UTCDateTime": "2019-Mar-08 0300",
     "UnixUTCTimestamp": 1552014014,
@@ -9447,7 +9449,6 @@
     "barometer": "NULL",
     "airTemp": "NULL",
     "dewPoint": "NULL",
-    "waterTemp": "NULL",
-    "": ""
+    "waterTemp": "NULL"
   }
-]
+];

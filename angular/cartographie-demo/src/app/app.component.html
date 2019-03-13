@@ -9,11 +9,17 @@
 	<div>
 		<h2>Ville</h2>
 		<p>ville : {{ __city }}</p>
-		<p>Ou choisissez une ville :
+		<p>Choisissez une ville :
 			<select [ngModel]="__city" (ngModelChange)="selectedCommune($event)">
 				<option *ngFor="let commune of __communes" [ngValue]="commune">{{ commune.nom }}</option>
 			</select>
-		</p>
+    </p>
+    <h2>Tracking</h2>
+    <p>Choisissez un bateau :
+			<select [ngModel]="__ships" (ngModelChange)="selectedShip($event)">
+				<option *ngFor="let ship of __ships" [ngValue]="ship">{{ ship }}</option>
+			</select>
+    </p>
 		<h2>Rendu :
 		</h2>
 

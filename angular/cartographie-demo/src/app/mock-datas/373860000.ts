@@ -1,6 +1,6 @@
-import { TrackRecord } from './track-record';
+import { TrackRecord } from './tracking-records.model';
 
-export const TRACKING: TrackRecord [] =[
+export const JULESGARNIERII: TrackRecord [] = [
   {
     'UTCDateTime': '2019-Mar-11 2358',
     'UnixUTCTimestamp': 1552348684,

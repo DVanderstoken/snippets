@@ -12,3 +12,10 @@ export interface TrackRecord {
   dewPoint: string;
   waterTemp: string;
 }
+
+export interface TrackingRecords {
+  shipName: string;
+  IMO: string;
+  MMSI: string;
+  tracking: TrackRecord[];
+}
