@@ -1,4 +1,5 @@
 ## Comment enlever les règles CSS inutilisées dans un projet Angular
+### A utiliser avec précautions...
 
 #### Utilise
 - gulp,
