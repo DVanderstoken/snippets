@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" media="all" href="static/styles/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="static/styles/graph.css" />
+</head>
+
+<body>
+
+	<h1>Exemple THYMELEAF</h1>
+
+	<div class="barcode-container">
+		<table>
+			<tr>
+				<td class="right"><img class="barcode" th:src="@{${barcode}}" alt="barcode"/></td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="bar-chart-container">
+		<table>
+			<tr>
+				<td class="right"><img class="bar-chart" th:src="@{${graph}}" alt="graph"/></td>
+			</tr>
+		</table>
+	</div>
+	
+
+	<div class='address-block-container'
+		th:include="address::address-block-container"></div>
+
+
+	<div class='footer' th:include="footer::footer"></div>
+
+	<div class="next-page">
+
+		<h2>Détail de la facture</h2>
+
+	</div>
+
+	<div class='footer' th:include="footer::footer"></div>
+</body>
+
+</html>

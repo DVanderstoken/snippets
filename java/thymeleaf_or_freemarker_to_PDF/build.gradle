@@ -1,0 +1,31 @@
+version '0.1.0'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.9'
+    compile group: 'org.thymeleaf', name: 'thymeleaf', version: '3.0.11.RELEASE'
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.28'
+    compile group: 'com.github.jknack', name: 'handlebars', version: '4.1.2'
+    compile group: 'net.sf.jtidy', name: 'jtidy', version: 'r938'
+    compile group: 'org.xhtmlrenderer', name: 'flying-saucer-core', version: '9.1.18'
+    compile group: 'org.xhtmlrenderer', name: 'flying-saucer-pdf-itext5', version: '9.1.18'
+    compile group: 'org.jfree', name: 'jfreechart', version: '1.5.0'
+    compile group: 'com.google.zxing', name: 'core', version: '3.3.3'
+    compile group: 'com.google.zxing', name: 'javase', version: '3.3.3'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    compile group: 'org.openjdk.jmh', name: 'jmh-core', version: '1.21'
+    compile group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: '1.21'
+
+    testCompile('org.junit.jupiter:junit-jupiter-api:5.4.2')
+    testCompile('org.junit.jupiter:junit-jupiter-engine:5.4.2')
+    testCompile('org.slf4j:slf4j-simple:1.7.26')
+}

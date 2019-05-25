@@ -1,0 +1,123 @@
+/**
+* force l'impression du background (! non standard)
+*/
+* {
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 12px;
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+}
+
+img {
+	display: block;
+}
+
+@page {
+
+    @bottom-left {
+        content: element(footer);
+        vertical-align: top;
+        padding-top: 10px;
+    }
+
+    margin-top: 0.8cm;
+    margin-left: 0.8cm;
+    margin-right: 1cm;
+    margin-bottom: 2cm;
+
+    size: A4 portrait;
+}
+
+div.footer {
+    display: block;
+    margin-top: 1mm;
+    position: running(footer);
+}
+
+#pagenumber:before {
+    content: counter(page);
+}
+
+#pagecount:before {
+    content: counter(pages);
+}
+
+.page-count {
+    text-align: right;
+}
+
+h1 {
+    font-size: 18px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+p {
+    font-size: 12px;
+}
+
+.footer {
+    text-align: center;
+}
+
+.barcode-container {
+	margin-top: 5.15cm;
+}
+
+.barcode {
+	width: 238px;
+	height: 30px;
+    padding: 0;
+    float: left;
+}
+
+.right {
+    text-align: right;
+}
+.petit {
+	font-size: 0.3em;
+}
+
+.left {
+    text-align: left;
+}
+
+.bottom {
+    vertical-align: bottom;
+}
+
+.address-block-container {
+	position: absolute;
+	top: 3.4cm;
+	left: 10cm;
+	width: 8.2cm;
+	height: 4cm;
+	border: 1px solid gray;
+}
+
+.address-block {
+    text-transform: uppercase;
+}
+
+table {
+    width: 100%;
+}
+
+hr {
+    background-color: #000000;
+    border: dashed #000000 0.5px;
+    height: 1px;
+}
+
+.page-break {
+    page-break-after: always;
+}
+
+.next-page {
+    page-break-before: always
+}
