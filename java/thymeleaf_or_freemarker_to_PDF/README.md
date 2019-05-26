@@ -20,11 +20,12 @@ notamment pour l'exécution des benchmarks (environ 45000 fichiers générés).
 
 ![Pipeleine de rendu](./documentation/Pipeline-complete.png)
 
-
 Arborescence du projet :
 ```
 ├── README.md
 ├── build.gradle
+├── documentation
+│   └── Pipeline-complete.png
 ├── freemarkerPDFResult.pdf
 ├── gradle
 │   └── wrapper
@@ -43,7 +44,9 @@ Arborescence du projet :
 │   │   │               ├── BarGraphService.java
 │   │   │               ├── BaseBenchmark.java
 │   │   │               ├── FreeMarkerBenchmark.java
-│   │   │               └── ThymeleafBenchmark.java
+│   │   │               ├── Mock.java
+│   │   │               ├── ThymeleafBenchmark.java
+│   │   │               └── XHTMLConverter.java
 │   │   └── resources
 │   │       ├── static
 │   │       │   ├── fonts

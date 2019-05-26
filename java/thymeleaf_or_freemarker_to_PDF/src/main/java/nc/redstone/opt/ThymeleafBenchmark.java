@@ -2,12 +2,9 @@ package nc.redstone.opt;
 
 import static org.thymeleaf.templatemode.TemplateMode.HTML;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.nio.file.FileSystems;
 import java.util.UUID;
 
@@ -16,7 +13,6 @@ import org.openjdk.jmh.annotations.Setup;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
-import org.w3c.tidy.Tidy;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.itextpdf.text.DocumentException;
@@ -28,7 +24,7 @@ import com.itextpdf.text.DocumentException;
  * Simply run this test to generate the PDF.
  */
 
-public class ThymeleafBenchmark extends BaseBenchmark{
+public class ThymeleafBenchmark extends BaseBenchmark {
 
 	private static final String OUTPUT_FILE = "thymeleafPDFResult.pdf";
 	private static final String UTF_8 = "UTF-8";
@@ -37,34 +33,37 @@ public class ThymeleafBenchmark extends BaseBenchmark{
 	private ClassLoaderTemplateResolver templateResolver;
 	private TemplateEngine templateEngine;
 	private Context context;
-	
+	private XHTMLConverter xHTMLConverter;
+
 	@Setup
 	public void setup() {
 		this.barcodeService = new BarCodeService();
 		this.barGraphService = new BarGraphService();
-		
+
 		templateResolver = new ClassLoaderTemplateResolver();
 		templateResolver.setPrefix("/templates/thymeleaf/");
 		templateResolver.setSuffix(".html");
 		templateResolver.setTemplateMode(HTML);
 		templateResolver.setCharacterEncoding(UTF_8);
-		
+
 		templateEngine = new TemplateEngine();
 		templateEngine.setTemplateResolver(templateResolver);
-		
+
 		context = new Context();
-		
+
+		xHTMLConverter = new XHTMLConverter();
+
 	}
 
 	@Benchmark
-	public void benchmark() throws IOException, DocumentException{
+	public void benchmark() throws IOException, DocumentException {
 
 		context.setVariable("barcode", barcodeService.createBarCode(UUID.randomUUID().toString()));
 		context.setVariable("graph", barGraphService.createBarGraph());
 
 		String renderedHtmlContent = templateEngine.process("template", context);
 
-		String xHtml = convertToXhtml(renderedHtmlContent);
+		String xHtml = xHTMLConverter.convertToXhtml(renderedHtmlContent);
 
 		ITextRenderer renderer = new ITextRenderer();
 		String baseUrl = FileSystems.getDefault().getPath("src", "main", "resources").toUri().toURL().toString();
@@ -74,19 +73,6 @@ public class ThymeleafBenchmark extends BaseBenchmark{
 		OutputStream outputStream = new FileOutputStream(OUTPUT_FILE);
 		renderer.createPDF(outputStream);
 		outputStream.close();
-	}
-
-	private String convertToXhtml(String html) throws UnsupportedEncodingException {
-		Tidy tidy = new Tidy();
-		tidy.setInputEncoding(UTF_8);
-		tidy.setOutputEncoding(UTF_8);
-		tidy.setXHTML(true);
-		tidy.setShowWarnings(false);
-		tidy.setQuiet(true);
-		ByteArrayInputStream inputStream = new ByteArrayInputStream(html.getBytes(UTF_8));
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		tidy.parseDOM(inputStream, outputStream);
-		return outputStream.toString(UTF_8);
 	}
 
 }

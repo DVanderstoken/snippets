@@ -1,12 +1,9 @@
 package nc.redstone.opt;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
 import java.nio.file.FileSystems;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +11,6 @@ import java.util.UUID;
 
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Setup;
-import org.w3c.tidy.Tidy;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.itextpdf.text.DocumentException;
@@ -37,15 +33,21 @@ public class FreeMarkerBenchmark extends BaseBenchmark {
 	private BarCodeService barcodeService;
 	private BarGraphService barGraphService;
 	private Configuration config;
-	
+	private XHTMLConverter xHTMLConverter;
+	private Mock mock;
+
 	@Setup
 	public void setup() {
 		this.barcodeService = new BarCodeService();
 		this.barGraphService = new BarGraphService();
-		
+
 		config = new Configuration(new Version("2.3.28"));
 		config.setClassForTemplateLoading(FreeMarkerBenchmark.class, "/templates/freemarker/");
 		config.setDefaultEncoding(UTF_8);
+
+		xHTMLConverter = new XHTMLConverter();
+		
+		mock = new Mock();
 	}
 
 	@Benchmark
@@ -57,12 +59,13 @@ public class FreeMarkerBenchmark extends BaseBenchmark {
 
 		params.put("barcode", barcodeService.createBarCode(UUID.randomUUID().toString()));
 		params.put("graph", barGraphService.createBarGraph());
+		params.put("datas", mock.getSimpleListOfData());
 
 		StringWriter sw = new StringWriter();
 
 		tpl.process(params, sw);
 
-		String xHtml = convertToXhtml(sw.toString());
+		String xHtml = xHTMLConverter.convertToXhtml(sw.toString());
 
 		ITextRenderer renderer = new ITextRenderer();
 		String baseUrl = FileSystems.getDefault().getPath("src", "main", "resources").toUri().toURL().toString();
@@ -72,19 +75,6 @@ public class FreeMarkerBenchmark extends BaseBenchmark {
 		OutputStream outputStream = new FileOutputStream("freemarkerPDFResult.pdf");
 		renderer.createPDF(outputStream);
 		outputStream.close();
-	}
-
-	private String convertToXhtml(String html) throws UnsupportedEncodingException {
-		Tidy tidy = new Tidy();
-		tidy.setInputEncoding(UTF_8);
-		tidy.setOutputEncoding(UTF_8);
-		tidy.setXHTML(true);
-		tidy.setShowWarnings(false);
-		tidy.setQuiet(true);
-		ByteArrayInputStream inputStream = new ByteArrayInputStream(html.getBytes(UTF_8));
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		tidy.parseDOM(inputStream, outputStream);
-		return outputStream.toString(UTF_8);
 	}
 
 }

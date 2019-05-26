@@ -36,13 +36,38 @@
 
 	<#include "footer.ftl">
 
-	<div class="next-page">
 
-		<h2>Détail de la facture</h2>
+    <#list datas?chunk(30) as chunks>
+    		
+		<#list chunks>
+	
+		<div class="tabledata next-page">
+					
+			<h2>Détail de la facture</h2>
+		
+			<table>
+     			<thead>
+    				<tr>
+      					<th>Value</th>
+    				</tr>
+  				</thead>
+  				<tbody>	
+  					<#items as data>
+    				<tr>
+      					<td>${data}</td>
+    				</tr>
+    				</#items>
+  				</tbody>
+			</table>
+					
+			<#include "footer.ftl">
+			
+		</div>
+		
+    	</#list>
 
-	</div>
+    </#list>
 
-	<#include "footer.ftl">
 </body>
 
 </html>
