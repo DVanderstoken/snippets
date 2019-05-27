@@ -18,7 +18,6 @@ public class TemplateEnginesTests {
 	@RepeatedTest(value = 10, name = "{displayName} : répétition {currentRepetition} / {totalRepetitions}")
 	@DisplayName(value = "Test de rendu avec FreeMarker")
 	*/
-	@Test
 	@JUnit5Benchmark
 	public void testFreemarkerTemplateEngine() throws TemplateException, IOException, DocumentException {
 		FreeMarkerBenchmark fmb = new FreeMarkerBenchmark();

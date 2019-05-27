@@ -71,7 +71,7 @@ public class JUnit5BenchmarkExtension
 	}
 
 	private static void report(String unit, ExtensionContext context, long elapsedTime) {
-		String message = String.format("%s '%s' took %d ms.", unit, context.getDisplayName(), elapsedTime);
+		String message = String.format("%d", elapsedTime);
 		System.out.println(message);
 		context.publishReportEntry("Benchmark", message);
 	}

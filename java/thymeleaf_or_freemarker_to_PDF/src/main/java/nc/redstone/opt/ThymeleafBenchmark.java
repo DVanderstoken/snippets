@@ -34,6 +34,7 @@ public class ThymeleafBenchmark extends BaseBenchmark {
 	private TemplateEngine templateEngine;
 	private Context context;
 	private XHTMLConverter xHTMLConverter;
+	private Mock mock;
 
 	@Setup
 	public void setup() {
@@ -53,6 +54,8 @@ public class ThymeleafBenchmark extends BaseBenchmark {
 
 		xHTMLConverter = new XHTMLConverter();
 
+		mock = new Mock();
+
 	}
 
 	@Benchmark
@@ -60,6 +63,7 @@ public class ThymeleafBenchmark extends BaseBenchmark {
 
 		context.setVariable("barcode", barcodeService.createBarCode(UUID.randomUUID().toString()));
 		context.setVariable("graph", barGraphService.createBarGraph());
+		context.setVariable("datas", mock.getSimpleListOfData());
 
 		String renderedHtmlContent = templateEngine.process("template", context);
 

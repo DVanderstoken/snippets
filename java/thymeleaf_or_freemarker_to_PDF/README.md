@@ -24,8 +24,6 @@ Arborescence du projet :
 ```
 ├── README.md
 ├── build.gradle
-├── documentation
-│   └── Pipeline-complete.png
 ├── freemarkerPDFResult.pdf
 ├── gradle
 │   └── wrapper
@@ -44,9 +42,7 @@ Arborescence du projet :
 │   │   │               ├── BarGraphService.java
 │   │   │               ├── BaseBenchmark.java
 │   │   │               ├── FreeMarkerBenchmark.java
-│   │   │               ├── Mock.java
-│   │   │               ├── ThymeleafBenchmark.java
-│   │   │               └── XHTMLConverter.java
+│   │   │               └── ThymeleafBenchmark.java
 │   │   └── resources
 │   │       ├── static
 │   │       │   ├── fonts
