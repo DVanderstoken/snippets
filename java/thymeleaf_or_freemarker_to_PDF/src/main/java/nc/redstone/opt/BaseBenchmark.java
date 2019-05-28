@@ -14,7 +14,7 @@ import org.openjdk.jmh.annotations.Warmup;
 @Fork(5)
 @Warmup(iterations = 5)
 @Measurement(iterations = 10)
-@BenchmarkMode(Mode.Throughput)
+@BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.SECONDS)
 @State(Scope.Benchmark)
 public class BaseBenchmark {

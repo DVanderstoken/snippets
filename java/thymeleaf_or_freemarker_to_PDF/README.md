@@ -14,7 +14,7 @@ notamment pour l'exécution des benchmarks (environ 45000 fichiers générés).
 #### Prérequis
 - Java JRE 9+ (cf. Benchmarks)
 - Maven 3.6.x
-- Gradle 4+
+- Gradle 5+
 
 #### Pipeline de rendu
 
