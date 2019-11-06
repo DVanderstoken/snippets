@@ -1,9 +1,10 @@
 # POC Editique
 ## Génération de documents PDF à partir des moteurs de template FreeMarker et Thymeleaf
 
-Le projet peut être construit avec :
+Le projet peut être construit indifféremment avec :
 - maven (cf. `pom.xml`, ou
-- gradle (cf. `build.gradle`) **A COMPLETER**
+- gradle (cf. `build.gradle`)
+Les wrappers étant installés dans les versions requises.
 
 Les noms de fichiers résultats sont figés :
 - freemarkerPDFResult.pdf pour FreeMarker 2, et
@@ -13,8 +14,8 @@ notamment pour l'exécution des benchmarks (environ 45000 fichiers générés).
 
 #### Prérequis
 - Java JRE 9+ (cf. Benchmarks)
-- Maven 3.6.x
-- Gradle 5+
+- Maven 3.6.x 
+- Gradle 5+ 
 
 #### Pipeline de rendu
 
@@ -24,6 +25,11 @@ Arborescence du projet :
 ```
 ├── README.md
 ├── build.gradle
+├── documentation
+│   ├── CSS-Print-en-2019-02-15.pdf
+│   ├── Documentation\ FreeMarker.url
+│   ├── Pipeline-complete.png
+│   └── usingthymeleaf.pdf
 ├── freemarkerPDFResult.pdf
 ├── gradle
 │   └── wrapper
@@ -31,8 +37,19 @@ Arborescence du projet :
 │       └── gradle-wrapper.properties
 ├── gradlew
 ├── gradlew.bat
+├── mvnw
+├── mvnw.cmd
 ├── pom.xml
+├── settings.gradle
 ├── src
+│   ├── jmh
+│   │   └── java
+│   │       └── nc
+│   │           └── redstone
+│   │               └── opt
+│   │                   ├── BaseBenchmark.java
+│   │                   ├── FreeMarkerBenchmark.java
+│   │                   └── ThymeleafBenchmark.java
 │   ├── main
 │   │   ├── java
 │   │   │   └── nc
@@ -40,9 +57,8 @@ Arborescence du projet :
 │   │   │           └── opt
 │   │   │               ├── BarCodeService.java
 │   │   │               ├── BarGraphService.java
-│   │   │               ├── BaseBenchmark.java
-│   │   │               ├── FreeMarkerBenchmark.java
-│   │   │               └── ThymeleafBenchmark.java
+│   │   │               ├── Mock.java
+│   │   │               └── XHTMLConverter.java
 │   │   └── resources
 │   │       ├── static
 │   │       │   ├── fonts
@@ -83,16 +99,22 @@ Le projet utilise :
 - Junit 5
 
 ##### JMH
+
+L'utilisation du plugin jmh pour gradle impose de placer les benchmarks dans le dossier source `src/jmh/java`.
+
 - construire le projet :
-    - Maven : `mvn clean install`
-    - Gradle : **A COMPLETER**
-- Lancer l'exécution des benchmarks : `java -jar target/benchmarks.jar`
+    - Maven : `./mvnw clean install`
+    - Gradle : `./gradlew build`
+
+- Lancer l'exécution des benchmarks : 
+    - Maven : `java -jar target/benchmarks.jar`
+    - Gradle : `./gradlew jmh` 
   
   **ATTENTION** : l'exécution des benchmarks dure environ 25 minutes. Ne pas interrompre le process au risque de ne pas avoir de résultats !
 
 ##### JUnit 5
 Il suffit de lancer l'exécution des tests :
-- Maven : `mvn test`
-- Gradle : **A COMPLETER**
+- Maven : `./mvnw test`
+- Gradle : `./gradlew test`
 
 Pour lancer des tests en masse, décommenter dans la classe de tests `TemplateEnginesTests` l'annotation `@RepeatedTest` en remplacement de l'annotation `@Test` (la supprimer dans ce cas).

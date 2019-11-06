@@ -19,6 +19,7 @@ public class TemplateEnginesTests {
 	@DisplayName(value = "Test de rendu avec FreeMarker")
 	*/
 	@JUnit5Benchmark
+	@Test
 	public void testFreemarkerTemplateEngine() throws TemplateException, IOException, DocumentException {
 		FreeMarkerBenchmark fmb = new FreeMarkerBenchmark();
 		fmb.setup();
