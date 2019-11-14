@@ -9,6 +9,10 @@
 
 #### Java
 - [Génération de document PDF à partir des moteurs de templating FreeMarker 2 et Thymeleaf](./java/thymeleaf_or_freemarker_to_PDF/README.md)
+- [Utilisation de containers Docker pour valider les migrations Flyway (par exemple)](./testcontainers/README.md)
 
 #### Maven
 - [tips and tricks](./maven/README.md)
+
+#### Docker
+- [Utilisation de containers Docker pour valider les migrations Flyway (par exemple)](./testcontainers/README.md)

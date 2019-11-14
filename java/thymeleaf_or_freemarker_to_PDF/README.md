@@ -19,7 +19,7 @@ notamment pour l'exécution des benchmarks (environ 45000 fichiers générés).
 
 #### Pipeline de rendu
 
-![Pipeleine de rendu](./documentation/Pipeline-complete.png)
+![Pipeline de rendu](./documentation/Pipeline-complete.png)
 
 Arborescence du projet :
 ```
