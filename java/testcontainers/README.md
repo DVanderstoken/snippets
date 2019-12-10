@@ -47,10 +47,9 @@ public class FlywayDbMigrationsTest {
 	@Order(2)
 	public void migrationsShouldBeDone() {
 		Flyway flyway = Flyway.configure().dataSource(
-            postgreSQLContainer.getJdbcUrl(),
-            postgreSQLContainer.getUsername(), 
-			postgreSQLContainer.getPassword()
-            ).load();
+                        postgreSQLContainer.getJdbcUrl(),
+                        postgreSQLContainer.getUsername(), 
+			postgreSQLContainer.getPassword()).load();
 		int result = 0;
 		try {
 			result = flyway.migrate();
