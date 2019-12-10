@@ -1,5 +1,4 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/274ce2905f8f4c5bb0b103b9f17f23e5)](https://www.codacy.com/manual/didier.vanderstoken/samples-projects?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DVanderstoken/samples-projects&amp;utm_campaign=Badge_Grade)
-[![Known Vulnerabilities](https://snyk.io/test/github/DVanderstoken/samples-projects/badge.svg)](https://snyk.io/test/github/DVanderstoken/samples-projects)
 
 ## Code snippets
 
