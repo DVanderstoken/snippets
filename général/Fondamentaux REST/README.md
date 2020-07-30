@@ -164,12 +164,51 @@ Quelle que soient les règles, il faut les appliquer systématiquement pour assu
 
 ---
 
-## 2 Les codes de réponses
+## 2 Gestion des erreurs
+
+Il existe plusieurs solutions, mais un consensus s'est formé autour de l'utilisation des [codes de statut HTTP](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml).
 
 ![HTTP status codes](./resources/images/HTTPStatusCodeMetroMap.jpg)
 
+Parmi les plus utilisés, on peut citer : 
 
-## 3 Et plus généralement.
+ Code statut HTTP | Description
+  --- | ---
+  200 Ok | Code générique de succès de l'exécution d'un requête, notamment sur les recherches (GET) et les mises à jour (PUT, PATCH)
+  201 Created | En réponse à la création d'une ressource (POST, PUT)
+  202 Accepted | Dans un cadre asynchrone, indique que la requête est bien prise en compte pour traitement ultérieur
+  204 No Content | En réponse à une suppression (DELETE) ou à une recherche (GET) dont les critères ne permettent pas d'avoir une réponse avec contenu.
+  206 Partial Content | En réponse à une recherche (GET) paginée (cf. HATEOAS)
+  400 Bad Request | Code générique face à l'impossibilité de traiter une requête
+  401 Unauthaurized | lorsque l'utilisateur n'est pas identifié
+  403 Forbidden | Lorsque l'utilisateur, bien qu'authentifié, ne dispose pas des droits suffisants pour accèder à cette ressource
+  404 Not Found | La ressource demandée n'existe pas
+  405 Method Not Allowed | Lorsque la méthode n'est pas applicable à la ressource ou lorsque l'utilisateur n'est pas autorisé à utiliser cette méthode sur la ressource
+  406 Not Acceptable | incompatibilité de la requête au regard des en-têtes HTTP Accept-*
+  500 Internal Server Error | Une erreur côté serveur que le client ne peut pas traiter
+
+L'utilisation du code statut HTTP, si elle ne suffit pas, peut être compléter par une structure d'information sur l'erreur en question incluse dans le corps de la réponse (cf. pour exemple la spéc. OAuth2 : [RFC 6749](https://tools.ietf.org/html/rfc6749#section-5.2)) : 
+```
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "error": {
+            "type": "string"
+        },
+        "errorDescription": {
+            "type": "string"
+        },
+        "errorUri": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "error"
+    ]
+}
+```
+## 3 Et plus généralement...
 
 _**keep it simple, stupid**_ :
 * N'importe quel développeur devrait pouvoir utiliser une API sans être obligé de se référer à la documentation. Mais si l'API est bien documentée, c'est mieux !
