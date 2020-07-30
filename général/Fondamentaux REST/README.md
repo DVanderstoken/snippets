@@ -112,6 +112,14 @@ Il s'agit ici d'identifier des ressources et non des actions sur lesdites ressou
  Mise à jour | PATCH | pour une mise à jour partielle
  Suppression | DELETE | Pour une suppression
 
+ Les méthodes HTTP _HEAD_ et _OPTIONS_ peuvent être utilisées en particulier pour :
+ - tester si une ressource existe et est accessible (_HEAD_, _OPTIONS_),
+ - si elle a changé (_HEAD_)
+ - quelles actions sont possibles sur la ressource en question (_OPTIONS_),
+ - récupérer d'éventuelles métadonnées (_HEAD_)
+
+Ces deux méthodes ont pour particularité de ne pas retourner de représentation de la ressource au client.
+
 Il est malgré tout possible qu'il reste dans les APIs des logiques d'opérations. Dans ce dernier cas, il convient d'utiliser une requête _POST_ et de considérer une URI qui se terminera par le verbe identifiant l'opération à effectuer.
 
 #### 1.1.5 Singulier vs. Pluriel
