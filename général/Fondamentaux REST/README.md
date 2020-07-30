@@ -31,7 +31,7 @@ Et y ajoute de nouvelles contraintes :
 
 Parmi les géants du Web, ce sont eBay, suivi par Amazon qui ont publié les premiers des APIs selon ce modèle (REST), puis Flickr...
 
-## Les principes généraux
+## 1. Les principes généraux
 
 Bien que REST ne soit pas un standard, il utilise des standards, en particulier :
 * [URI](https://tools.ietf.org/html/rfc3986) comme syntaxe universelle pour adresser les **ressources** ;
@@ -40,12 +40,12 @@ Bien que REST ne soit pas un standard, il utilise des standards, en particulier 
 * les [types MIMES](https://www.iana.org/assignments/media-types/media-types.xhtml) ;
 * ...
 
-### L'identification des ressources
+### 1.1 L'identification des ressources
 
 L'identification des ressources est une question centrale dans la conception des API REST. Elle doit donc être clairement définie et partagée par tous. 
 Ce sont ses règle d'identification qui vont garantir notamment le cohérence et l'homogénéité des APIs. Cet aspect est d'autant plus important lorsque lesdites APIs deviennent publiques.
 
-#### Noms de domaines des API
+#### 1.1.1 Noms de domaines des API
 
 La publication de sous-domaines pour les APIs est surtout à prendre en compte lorsque celles-ci sont **publiques**. Par anticipation, il est possible de mettre en place les domaines suivants : 
 * **production** : https://**api**.example.com
@@ -55,7 +55,7 @@ La publication de sous-domaines pour les APIs est surtout à prendre en compte l
 
 * **portail développeurs** : https://**developers**.example.com
 
-#### Versionning
+#### 1.1.2 Versionning
 
 La définition de l'architecture REST ne comporte aucun élément quant au versioning des APIs. Le versioning reste cependant un thème à part entière, notamment pour gérer l'évolutivité des services et donc des APIs proposées.
 
@@ -74,14 +74,14 @@ Il existe plusieurs solutions, communément admises :
      ```
 Pour sa simplicité de mise en oeuvre, c'est la **première solution** qui est très majoritairement utilisée. La numérotation retient **uniquement le numéro de version majeure**. Il faut donc définir les opérations qui sont à l'origine de ce changement de version, le plus souvent, il s'agit de **_breaking changes_**, notamment tout changement qui impacte directement les clients existants.
 
-#### Casse
+#### 1.1.3 Casse
 
 Il existe 3 types principaux de style de casse : 
 - **C**amel**C**ase, décliné en **l**ower**C**amel**C**ase et **U**pper**C**amel**C**ase,
 - snake_case (utilisation du **_underscore_** pour séparer les termes), et
 - spinal-case (utilisation du **tiret** - _hyphen_ - pour séparer les termes).
 
-##### URI
+##### 1.1.3.1 URI
 
 La [RFC 3986](https://www.ietf.org/rfc/rfc3986.txt) définie **les URIs sensibles à la casse**, sauf pour le protocole (_scheme_) et l'hôte dans la partie domaine (_authority_).
 
@@ -91,20 +91,32 @@ Pour séparer les termes d'une expression, il reste possible d'utiliser soit l'u
 
 Pour une simple question de facilité de lecture et de visibilité des caractères, **il est préférable d'utiliser** le tiret, donc **la notation spinal-case**.
 
-##### Corps des requêtes et des réponses
+##### 1.1.3.2 Corps des requêtes et des réponses
 
 Sur la base des règles, imposées ou de fait, d'un grand nombre de langage de programmation, dont Java, JavaScript, etc., il est recommandé d'utilisé la notation lowerCamelCase.
 
-#### Noms vs. Verbes
+#### 1.1.4 Noms vs. Verbes
 
-#### Singulier vs. Pluriel
+Il s'agit ici d'identifier des ressources et non des actions sur lesdites ressources. Il convient donc d'utiliser des noms et non des verbes. Les actions effectuées sur ces mêmes ressources seront portées par la méthode HTTP utilisée par la requête, en particulier pour les opérations CRUD :
 
-#### Strucuture hiérarchique
+ Operation  | méthode HTTP   | Commentaire(s) 
+----------- | -------------- | ----------------
+ Création | POST | Pour créer une instance dans une collection si l'identifiant de l'instance est inconnu. L'identification (l'URI) de la ressource nouvellement créée figure dans l'attribut _Location:_ de la réponse HTTP
+ Création | PUT | Uniquement lorsque l'identifiant de la nouvelle ressource est fourni par le client dans la requête HTTP
+ Recherche | GET | Pour la recherche d'une collection ou d'une instance dans une collection
+ Mise à jour | PUT | Pour une mise à jour complète
+ Mise à jour | PATCH | pour une mise à jour partielle
+ Suppression | DELETE | Pour une suppression
+ 
+
+#### 1.1.5 Singulier vs. Pluriel
+
+#### 1.1.6 Strucuture hiérarchique
 
 
 Par ailleurs sa maturité et sa grande popularité ont fait émerger des 
 
-### Bonnes pratiques et des standards de fait.
+### 1.2 Bonnes pratiques et des standards de fait.
 
 Et comme d'habitude, _**keep it simple, stupid**_ :
 * N'importe quel développeur devrait pouvoir utiliser une API sans être obligé de se référer à la documentation. Mais si l'API est bien documentée, c'est mieux !
