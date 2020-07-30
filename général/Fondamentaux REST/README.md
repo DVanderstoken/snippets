@@ -78,16 +78,22 @@ Pour sa simplicité de mise en oeuvre, c'est la **première solution** qui est t
 
 Il existe 3 types principaux de style de casse : 
 - **C**amel**C**ase, décliné en **l**ower**C**amel**C**ase et **U**pper**C**amel**C**ase,
-- snake**_**case, et
-- spinal**-**case.
+- snake_case (utilisation du **_underscore_** pour séparer les termes), et
+- spinal-case (utilisation du **tiret** - _hyphen_ - pour séparer les termes).
+
+##### URI
 
 La [RFC 3986](https://www.ietf.org/rfc/rfc3986.txt) définie **les URIs sensibles à la casse**, sauf pour le protocole (_scheme_) et l'hôte dans la partie domaine (_authority_).
 
 **Il faut donc préférer l'écriture des URIs en minuscules.**
 
+Pour séparer les termes d'une expression, il reste possible d'utiliser soit l'underscore (snake_case), soit le tiret (spinal-case).
 
+Pour une simple question de facilité de lecture et de visibilité des caractères, **il est préférable d'utiliser** le tiret, donc **la notation spinal-case**.
 
+##### Corps des requêtes et des réponses
 
+Sur la base des règles, imposées ou de fait, d'un grand nombre de langage de programmation, dont Java, JavaScript, etc., il est recommandé d'utilisé la notation lowerCamelCase.
 
 #### Noms vs. Verbes
 
