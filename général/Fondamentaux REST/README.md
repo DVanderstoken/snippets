@@ -128,8 +128,8 @@ La profondeur de la structure hiérarchique ne devrait pas dépasser deux niveau
 Exemple : 
 URI : 
 ```
-/countries/DEU/states
-/countries/DEU/states/Saarland
+/countries/DEU/regions
+/countries/DEU/regions/Saarland
 ```
 Corps (Json)
 ```
@@ -139,7 +139,7 @@ Corps (Json)
    "alpha2": "DE",
    "alpha3": "DEU",
    "numeric": "276",
-   "states": [
+   "regions": [
       {
          "name": "Saarland",
          (...)
@@ -148,12 +148,30 @@ Corps (Json)
    ]
 }
 ```
+---
+## En résumé
 
- 
+Ces recommandations permettent d'identifier et de manipuler les ressources dans une grande majorité de cas.
 
-### 1.2 Bonnes pratiques et des standards de fait.
+Exemple d'URI selon les principes ennoncés :
+```
+https://api.example.com/v1/countries/DEU/regions
+https://api.example.com/geolocation/v1/countries/DEU/regions
+https://api.geolocation.example.com/v1/countries/DEU/regions
+```
 
-Et comme d'habitude, _**keep it simple, stupid**_ :
+Quelle que soient les règles, il faut les appliquer systématiquement pour assurer la cohérence, l' homogénéité, l' "explorabilité" et la lisibilité des APIs fournies aux développeurs et / ou aux clients.
+
+---
+
+## 2 Les codes de réponses
+
+![HTTP status codes](./resources/images/HTTPStatusCodeMetroMap.jpg)
+
+
+## 3 Et plus généralement.
+
+_**keep it simple, stupid**_ :
 * N'importe quel développeur devrait pouvoir utiliser une API sans être obligé de se référer à la documentation. Mais si l'API est bien documentée, c'est mieux !
 * Une API doit être conçue pour les applications clientes, elle peut donc dénormaliser le modèle de données auquel elle se rapporte.
 * Les opérations de manipulation des ressources sont uniques
