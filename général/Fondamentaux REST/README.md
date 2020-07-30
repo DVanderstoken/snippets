@@ -97,7 +97,7 @@ Sur la base des règles, imposées ou de fait, d'un grand nombre de langage de p
 
 #### 1.1.4 Noms vs. Verbes
 
-Il s'agit ici d'identifier des ressources et non des actions sur lesdites ressources. Il convient donc d'utiliser des noms et non des verbes. Les actions effectuées sur ces mêmes ressources seront portées par la méthode HTTP utilisée par la requête, en particulier pour les opérations CRUD :
+Il s'agit ici d'identifier des ressources et non des actions sur lesdites ressources par opposition aux systèmes RPC, voire SOAP... Il convient donc d'utiliser des noms et non des verbes. Il faut utiliser des noms significatifs et éviter les acronymes. Les actions effectuées sur ces mêmes ressources seront portées par la méthode HTTP utilisée par la requête, en particulier pour les opérations CRUD :
 
  Operation  | méthode HTTP   | Commentaire(s) 
 ----------- | -------------- | ----------------
@@ -107,14 +107,49 @@ Il s'agit ici d'identifier des ressources et non des actions sur lesdites ressou
  Mise à jour | PUT | Pour une mise à jour complète
  Mise à jour | PATCH | pour une mise à jour partielle
  Suppression | DELETE | Pour une suppression
- 
+
+Il est malgré tout possible qu'il reste dans les APIs des logiques d'opérations. Dans ce dernier cas, il convient d'utiliser une requête _POST_ et de considérer une URI qui se terminera par le verbe identifiant l'opération à effectuer.
 
 #### 1.1.5 Singulier vs. Pluriel
 
-#### 1.1.6 Strucuture hiérarchique
+Quelle que soit la règle mise en place, elle doit être appliquée systématiquement pour faciliter :
+- l'_explorabilité_ de l'API, et
+- sa logique naturelle de lecture
 
+Il est donc recommandé d'utiliser les noms au pluriel.
 
-Par ailleurs sa maturité et sa grande popularité ont fait émerger des 
+Exemple : 
+`/countries/{id}` renvoie un pays (instance) choisi dans la liste (collection) des pays
+
+#### 1.1.6 Structure hiérarchique
+
+La profondeur de la structure hiérarchique ne devrait pas dépasser deux niveaux, aussi bien au niveau des URIs d'identification des ressources, qu'au niveau des corps de requêtes et de réponses.
+
+Exemple : 
+URI : 
+```
+/countries/DEU/states
+/countries/DEU/states/Saarland
+```
+Corps (Json)
+```
+{
+   "shortName": "Germany",
+   "fullName": "Germany",
+   "alpha2": "DE",
+   "alpha3": "DEU",
+   "numeric": "276",
+   "states": [
+      {
+         "name": "Saarland",
+         (...)
+      },
+      (...)
+   ]
+}
+```
+
+ 
 
 ### 1.2 Bonnes pratiques et des standards de fait.
 
