@@ -1,5 +1,26 @@
 # Fondamentaux REST
 
+
+  - [1. Les principes généraux](#1-les-principes-généraux)
+    - [1.1 L'identification des ressources](#11-lidentification-des-ressources)
+      - [1.1.1 Noms de domaines des API](#111-noms-de-domaines-des-api)
+      - [1.1.2 Versioning](#112-versioning)
+      - [1.1.3 Casse](#113-casse)
+        - [1.1.3.1 URI](#1131-uri)
+        - [1.1.3.2 Corps des requêtes et des réponses](#1132-corps-des-requêtes-et-des-réponses)
+      - [1.1.4 Noms vs. Verbes](#114-noms-vs-verbes)
+      - [1.1.5 Singulier vs. Pluriel](#115-singulier-vs-pluriel)
+      - [1.1.6 Structure hiérarchique](#116-structure-hiérarchique)
+  - [En résumé](#en-résumé)
+  - [2 Gestion des erreurs](#2-gestion-des-erreurs)
+    - [Succès](#succès)
+    - [Erreurs côté client](#erreurs-côté-client)
+    - [Erreurs côté serveur](#erreurs-côté-serveur)
+  - [3 Pour une approche plus fine des requêtes de recherche (GET)](#3-pour-une-approche-plus-fine-des-requêtes-de-recherche-get)
+  - [4 HATEOAS ou le Saint Graal REST](#4-hateoas-ou-le-saint-graal-rest)
+  - [5 Documenter les APIs](#5-documenter-les-apis)
+  - [6 Et plus généralement...](#6-et-plus-généralement)
+
 Les API REST - Representational State Transfert - sont de plus en plus populaires :
 
 ![Most Populat API Protocols](./resources/images/MostPopularAPIProtocols.png "Most Populat API Protocols")
@@ -263,7 +284,9 @@ Leonard Richardson a développpé un modèle de maturité dans l'adoption du sty
 
 Hypermedia As The Engine Of Application State (HATEOAS) tend à adresser les parts hypermédia et autodescriptive dans la mise en place d'une API.
 
-## 5 Et plus généralement...
+## 5 Documenter les APIs
+
+## 6 Et plus généralement...
 
 _**keep it simple, stupid**_ :
 * N'importe quel développeur devrait pouvoir utiliser une API sans être obligé de se référer à la documentation. Mais si l'API est bien documentée, c'est mieux !
