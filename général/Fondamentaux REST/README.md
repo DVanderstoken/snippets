@@ -282,9 +282,9 @@ Leonard Richardson a développpé un modèle de maturité dans l'adoption du sty
 
 ![REST API Maturity Model](./resources/images/rest_api_maturity.png)
 
-Hypermedia As The Engine Of Application State (HATEOAS) tend à adresser les parts hypermédia et autodescriptive dans la mise en place d'une API.
+Hypermedia As The Engine Of Application State (HATEOAS) tend à adresser les parts hypermédia et autodescriptive (ou auto-découverte) dans la mise en place d'une API.
 
-## 5 Documenter les APIs
+## 5 Documenter les APIs REST
 
 ## 6 Et plus généralement...
 
