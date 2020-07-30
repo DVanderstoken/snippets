@@ -43,7 +43,7 @@ Bien que REST ne soit pas un standard, il utilise des standards, en particulier 
 ### 1.1 L'identification des ressources
 
 L'identification des ressources est une question centrale dans la conception des API REST. Elle doit donc être clairement définie et partagée par tous. 
-Ce sont ses règle d'identification qui vont garantir notamment le cohérence et l'homogénéité des APIs. Cet aspect est d'autant plus important lorsque lesdites APIs deviennent publiques.
+Ce sont ces règles d'identification qui vont garantir notamment la cohérence et l'homogénéité des APIs. Cet aspect est d'autant plus important lorsque lesdites APIs sont publiques.
 
 #### 1.1.1 Noms de domaines des API
 
@@ -51,11 +51,11 @@ La publication de sous-domaines pour les APIs est surtout à prendre en compte l
 * **production** : https://**api**.example.com
 * **tests** : https://**api.sandbox**.example.com
   
-  Pour ces deux premiers sous-domaines, il est possible, lorsque les domaines métiers sont multiples et avec des APIs nombreuses, de les distinguer par domaines métiers, mais jamais par domaines techniques !
+  Pour ces deux premiers sous-domaines, il est également possible, lorsque les domaines métiers sont multiples et avec des APIs nombreuses, de les distinguer, mais jamais par domaines techniques !
 
 * **portail développeurs** : https://**developers**.example.com
 
-#### 1.1.2 Versionning
+#### 1.1.2 Versioning
 
 La définition de l'architecture REST ne comporte aucun élément quant au versioning des APIs. Le versioning reste cependant un thème à part entière, notamment pour gérer l'évolutivité des services et donc des APIs proposées.
 
@@ -63,21 +63,25 @@ Il existe plusieurs solutions, communément admises :
 * **Positionner le numéro de version de l'API, sur un digit (version majeure), au plus haut niveau du chemin de l'URI ;**
 * Utiliser les en-têtes HTTP :
    * [_Accept_](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html) : en utilisant la paramètre _level_
+     
      Exemple :
      ```
      Accept: application/json;level=1
      ``` 
    * Utiliser un en-tête personnalisé, _Accept-version_.
+     
      Exemple :
      ```
      Accept-version: v1
      ```
-Pour sa simplicité de mise en oeuvre, c'est la **première solution** qui est très majoritairement utilisée. La numérotation retient **uniquement le numéro de version majeure**. Il faut donc définir les opérations qui sont à l'origine de ce changement de version, le plus souvent, il s'agit de **_breaking changes_**, notamment tout changement qui impacte directement les clients existants.
+Pour sa simplicité de mise en oeuvre, c'est la **première solution** qui est très majoritairement utilisée. La numérotation retient **uniquement le numéro de version majeure**. Il faut donc définir les opérations qui sont à l'origine des changements de version, le plus souvent, il s'agit de **_breaking changes_**, notamment tout changement qui impacte directement les clients existants.
 
 #### 1.1.3 Casse
 
 Il existe 3 types principaux de style de casse : 
-- **C**amel**C**ase, décliné en **l**ower**C**amel**C**ase et **U**pper**C**amel**C**ase,
+- **C**amel**C**ase, décliné en :
+    -  **l**ower**C**amel**C**ase et 
+    -  **U**pper**C**amel**C**ase,
 - snake_case (utilisation du **_underscore_** pour séparer les termes), et
 - spinal-case (utilisation du **tiret** - _hyphen_ - pour séparer les termes).
 
