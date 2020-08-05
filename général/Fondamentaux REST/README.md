@@ -1,6 +1,6 @@
 # Fondamentaux REST
 
-
+- [Fondamentaux REST](#fondamentaux-rest)
   - [1. Les principes généraux](#1-les-principes-généraux)
     - [1.1 L'identification des ressources](#11-lidentification-des-ressources)
       - [1.1.1 Noms de domaines des API](#111-noms-de-domaines-des-api)
@@ -13,12 +13,12 @@
       - [1.1.6 Structure hiérarchique](#116-structure-hiérarchique)
   - [En résumé](#en-résumé)
   - [2 Gestion des erreurs](#2-gestion-des-erreurs)
-    - [Succès](#succès)
-    - [Erreurs côté client](#erreurs-côté-client)
-    - [Erreurs côté serveur](#erreurs-côté-serveur)
+    - [2.1 Succès](#21-succès)
+    - [2.2 Erreurs côté client](#22-erreurs-côté-client)
+    - [2.3 Erreurs côté serveur](#23-erreurs-côté-serveur)
   - [3 Pour une approche plus fine des requêtes de recherche (GET)](#3-pour-une-approche-plus-fine-des-requêtes-de-recherche-get)
-  - [4 HATEOAS ou le Saint Graal REST](#4-hateoas-ou-le-saint-graal-rest)
-  - [5 Documenter les APIs](#5-documenter-les-apis)
+  - [4 HATEOAS](#4-hateoas)
+  - [5 Documenter les APIs REST](#5-documenter-les-apis-rest)
   - [6 Et plus généralement...](#6-et-plus-généralement)
 
 Les API REST - Representational State Transfert - sont de plus en plus populaires :
@@ -205,7 +205,7 @@ Il existe plusieurs solutions, mais un consensus s'est formé autour de l'utilis
 
 Parmi les plus utilisés, on peut citer : 
 
-### Succès
+### 2.1 Succès
  Code statut HTTP | Description
   --- | ---
   200 Ok | Code générique de succès de l'exécution d'un requête, notamment sur les recherches (GET) et les mises à jour (PUT, PATCH)
@@ -214,7 +214,7 @@ Parmi les plus utilisés, on peut citer :
   204 No Content | En réponse à une suppression (DELETE) ou à une recherche (GET) dont les critères ne permettent pas d'avoir une réponse avec contenu.
   206 Partial Content | En réponse à une recherche (GET) paginée (cf. HATEOAS)
  
- ### Erreurs côté client
+ ### 2.2 Erreurs côté client
  Code statut HTTP | Description
   --- | ---
   400 Bad Request | Code générique face à l'impossibilité de traiter une requête
@@ -224,7 +224,7 @@ Parmi les plus utilisés, on peut citer :
   405 Method Not Allowed | Lorsque la méthode n'est pas applicable à la ressource ou lorsque l'utilisateur n'est pas autorisé à utiliser cette méthode sur la ressource
   406 Not Acceptable | incompatibilité de la requête au regard des en-têtes HTTP Accept-*
   
-  ### Erreurs côté serveur
+  ### 2.3 Erreurs côté serveur
  Code statut HTTP | Description
   --- | ---
   500 Internal Server Error | Une erreur côté serveur que le client ne peut pas traiter
@@ -276,13 +276,113 @@ Il faudra aussi adapter l'utilisation des codes statut HTTP avec le code *__206 
 
 
 
-## 4 HATEOAS ou le Saint Graal REST
+## 4 HATEOAS 
+
+**ou le Saint Graal REST**
 
 Leonard Richardson a développpé un modèle de maturité dans l'adoption du style d'architecture REST ([QCon 2008](http://www.crummy.com/writing/speaking/2008-QCon/act3.html)) :
 
 ![REST API Maturity Model](./resources/images/rest_api_maturity.png)
 
 Hypermedia As The Engine Of Application State (HATEOAS) tend à adresser les parts hypermédia et autodescriptive (ou auto-découverte) dans la mise en place d'une API.
+Les interactions entre un client de l'API et l'API elle-même sont rendues possibles par les liens hypermédia fournis pour chaque ressource interrogée.
+
+HATEOAS s'appuie sur :
+- la possibilité de mettre en place des modèles de représentation des ressources,
+- la [normalisation dans la construction des liens hypermedia (HAL)](https://tools.ietf.org/html/draft-kelly-json-hal-08)
+- l'autodécouverte des API au travers de métadonnées : [Application Level Profile Semantics (ALPS)](https://tools.ietf.org/html/draft-amundsen-richardson-foster-alps-02)
+
+Exemple : 
+
+Pour un modèle de données partiel relatif au [code officiel géographique](https://www.insee.fr/fr/information/2560452) : 
+
+![Organisation administrative du territoire de la France](resources/images/cog-example.png)
+
+L'interrogation de l'API `/api/v1/departements/59`, avec le modèle HATEOAS, retourne :
+
+- représentation de la ressource (HAL) :
+```
+{
+  "dep" : "59",
+  "tncc" : "2",
+  "ncc" : "NORD",
+  "nccenr" : "Nord",
+  "libelle" : "Nord",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/api/v1/departements/59"
+    },
+    "departement" : {
+      "href" : "http://localhost:8080/api/v1/departements/59"
+    },
+    "cheflieu" : {
+      "href" : "http://localhost:8080/api/v1/departements/59/cheflieu"
+    },
+    "communes" : {
+      "href" : "http://localhost:8080/api/v1/departements/59/communes"
+    }
+  }
+}
+```
+
+
+La commune chef lieu de département, ainsi que la liste des communes du département ne figurent pas dans la réponse, mais des liens sont fournis par l'API pour obtenir la représentation de ces ressources.
+
+- méta-données (ALPS) :
+  ```
+  {
+    "alps": {
+        "version": "1.0",
+        "descriptor": [
+            {
+                "id": "departement-representation",
+                "href": "http://localhost:8080/api/v1/profile/departements",
+                "descriptor": [
+                    {
+                        "name": "dep",
+                        "type": "SEMANTIC"
+                    },
+                    {
+                        "name": "tncc",
+                        "type": "SEMANTIC"
+                    },
+                    {
+                        "name": "ncc",
+                        "type": "SEMANTIC"
+                    },
+                    {
+                        "name": "nccenr",
+                        "type": "SEMANTIC"
+                    },
+                    {
+                        "name": "libelle",
+                        "type": "SEMANTIC"
+                    },
+                    {
+                        "name": "cheflieu",
+                        "type": "SAFE",
+                        "rt": "http://localhost:8080/api/v1/profile/communes#commune-representation"
+                    },
+                    {
+                        "name": "communes",
+                        "type": "SAFE",
+                        "rt": "http://localhost:8080/api/v1/profile/communes#commune-representation"
+                    }
+                ]
+            },
+            {
+                "id": "get-departements",
+                "name": "departements",
+                "type": "SAFE",
+                "descriptor": [],
+                "rt": "#departement-representation"
+            }
+        ]
+    }
+}
+```
+Remarque :
+S'agissant de données de références, il n'y a dans cet exemple que le GET d'autorisé.
 
 ## 5 Documenter les APIs REST
 
