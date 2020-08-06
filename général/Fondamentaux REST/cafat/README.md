@@ -11,7 +11,7 @@
       - [1.1.4 Noms vs. Verbes](#114-noms-vs-verbes)
       - [1.1.5 Singulier vs. Pluriel](#115-singulier-vs-pluriel)
       - [1.1.6 Structure hiérarchique](#116-structure-hiérarchique)
-  - [En résumé](#en-résumé)
+    - [En résumé](#en-résumé)
     - [1.2 Gestion des erreurs](#12-gestion-des-erreurs)
       - [1.2.1 Succès](#121-succès)
       - [1.2.2 Erreurs côté client](#122-erreurs-côté-client)
@@ -144,7 +144,7 @@ Pour une simple question de facilité de lecture et de visibilité des caractèr
 
 cf. [BP-REST : Convention sur la casse d'une URL REST](https://atlas-prd-01.intra.cafat.nc/confluence/display/PD/BP-REST+%3A+Convention+sur+la+casse+d%27une+URL+REST)
 
-Les recommandations de la Cafat imposent le **spinal-case**.
+Les recommandations de la Cafat imposent le **spinal-case** mais la règle n'est pas respectée (grande hétérogénéité).
 
 ---
 
@@ -219,6 +219,8 @@ Exemple :
 
 cf. [BP-REST : Convention de nommage d'une ressource](https://atlas-prd-01.intra.cafat.nc/confluence/display/PD/BP-REST+%3A+Convention+de+nommage+d%27une+ressource)
 
+Il y a de grandes différences issues de la non application de cette règle.
+
 ---
 
 #### 1.1.6 Structure hiérarchique
@@ -258,7 +260,7 @@ A vérifier pour certains services d'APIs _legacy_
 
 ---
 
-## En résumé
+### En résumé
 
 Ces recommandations permettent d'identifier et de manipuler les ressources dans une grande majorité de cas.
 
@@ -270,6 +272,8 @@ https://api.geolocation.example.com/v1/countries/DEU/regions
 ```
 
 **Quelle que soient les règles, il faut les appliquer systématiquement pour assurer la cohérence, l' homogénéité, l' "explorabilité" et la lisibilité des APIs fournies aux développeurs et / ou aux clients.**
+
+**Globalement, l'ensemble des règles déjà en place à la Cafat ne sont pas systématiquement appliquées. Il en résulte un manque flagrant d'homogénéité dans l'identification et la manipulation des ressources.**
 
 ---
 
@@ -305,7 +309,7 @@ Parmi les plus utilisés, on peut citer :
   --- | ---
   500 Internal Server Error | Une erreur côté serveur que le client ne peut pas traiter
 
-L'utilisation du code statut HTTP, si elle ne suffit pas, peut être compléter par une structure d'information sur l'erreur en question incluse dans le corps de la réponse (cf. pour exemple la spéc. OAuth2 : [RFC 6749](https://tools.ietf.org/html/rfc6749#section-5.2)) : 
+L'utilisation du code statut HTTP, si elle ne suffit pas, **peut** être compléter par une structure d'information sur l'erreur en question incluse dans le corps de la réponse (cf. pour exemple la spéc. OAuth2 : [RFC 6749](https://tools.ietf.org/html/rfc6749#section-5.2)) : 
 ```
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
@@ -326,6 +330,8 @@ L'utilisation du code statut HTTP, si elle ne suffit pas, peut être compléter 
     ]
 }
 ```
+
+Cette structure, s'il n'y a pas d'erreur dans la manipulation de la ressource, ne doit pas être visible dans la réponse.
 
 ---
 **A la Cafat...**
