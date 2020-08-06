@@ -288,7 +288,7 @@ Hypermedia As The Engine Of Application State (HATEOAS) tend à adresser les par
 Les interactions entre un client de l'API et l'API elle-même sont rendues possibles par les liens hypermédia fournis pour chaque ressource interrogée.
 
 HATEOAS s'appuie sur :
-- la possibilité de mettre en place des modèles de représentation des ressources,
+- la possibilité de mettre en place des modèles de représentation des ressources (Model, Preview, Assembler),
 - la [normalisation dans la construction des liens hypermedia (HAL)](https://tools.ietf.org/html/draft-kelly-json-hal-08)
 - l'autodécouverte des API au travers de métadonnées : [Application Level Profile Semantics (ALPS)](https://tools.ietf.org/html/draft-amundsen-richardson-foster-alps-02)
 
@@ -328,7 +328,7 @@ L'interrogation de l'API `/api/v1/departements/59`, avec le modèle HATEOAS, ret
 
 La commune chef lieu de département, ainsi que la liste des communes du département ne figurent pas dans la réponse, mais des liens sont fournis par l'API pour obtenir la représentation de ces ressources.
 
-- méta-données (ALPS) :
+- méta-données (ALPS) sur `/api/v1/profile/departements` :
   ```
   {
     "alps": {
@@ -380,11 +380,25 @@ La commune chef lieu de département, ainsi que la liste des communes du départ
         ]
     }
 }
-```
+
+
 Remarque :
 S'agissant de données de références, il n'y a dans cet exemple que le GET d'autorisé.
 
 ## 5 Documenter les APIs REST
+
+La question de documenter les APIs reste entière et il existe notamment un débat sur sa nécessité lorsque celles-ci sont fournies selon le plus haut niveau de maturité du modèle de Richardson (Niveau 3 : HATEOAS).
+
+Néanmoins, cette documentation doit être envisagée, au-delà de la lisibilité de l'API pour les développeurs, également pour sa testabilité, en particulier pour les APIs publiques.
+
+Si ce domaine est longtemps resté un lieu d'expérimentation (et de compétition), c'est désormais le format [OpenAPI v3](http://spec.openapis.org/oas/v3.0.3), initialement porté par le projet [swagger](https://swagger.io/), qui est adopté, y compris par les géants du Web. Le format OpenAPI est porté par le consortium [OpenAPI initiative](https://www.openapis.org) sous l'égide de la _Linux Foundation_.
+
+Il faut ici aussi distinguer le format de documentation des outils.
+Il existe ainsi d'autres formats dont par exemple [api blueprint](https://apiblueprint.org/), [RAML](https://raml.org/)... Et il existe aussi plusieurs outils, dont par exemple [swagger](https://swagger.io/), [RAML](https://raml.org/)...
+
+Les outils permettent d'avoir une approche : 
+-  _top /down_, i.e. c'est la description de l'API via sa documentation qui va permettre de générer le code (stubs et SDK client), par exemple [swagger codeGen](https://swagger.io/tools/swagger-codegen/)
+- _bottom / up_, i.e. la documentation est générée de manière statique ou dynamique à partir du code (annotations dans le code source Java, à partir de l'exécution de tests, etc.).
 
 ## 6 Et plus généralement...
 
