@@ -301,6 +301,7 @@ Pour un modèle de données partiel relatif au [code officiel géographique](htt
 L'interrogation de l'API `/api/v1/departements/59`, avec le modèle HATEOAS, retourne :
 
 - représentation de la ressource (HAL) :
+  
 ```
 {
   "dep" : "59",
@@ -325,11 +326,11 @@ L'interrogation de l'API `/api/v1/departements/59`, avec le modèle HATEOAS, ret
 }
 ```
 
-
 La commune chef lieu de département, ainsi que la liste des communes du département ne figurent pas dans la réponse, mais des liens sont fournis par l'API pour obtenir la représentation de ces ressources.
 
 - méta-données (ALPS) sur `/api/v1/profile/departements` :
-  ```
+
+```
   {
     "alps": {
         "version": "1.0",
@@ -380,7 +381,7 @@ La commune chef lieu de département, ainsi que la liste des communes du départ
         ]
     }
 }
-
+```
 
 Remarque :
 S'agissant de données de références, il n'y a dans cet exemple que le GET d'autorisé.
