@@ -20,6 +20,15 @@
   - [3 HATEOAS](#3-hateoas)
   - [4 Documenter les APIs REST](#4-documenter-les-apis-rest)
   - [5 Et plus généralement...](#5-et-plus-généralement)
+  - [Annexes](#annexes)
+    - [**Exemples** de règles de grammaire / d'audit](#exemples-de-règles-de-grammaire--daudit)
+      - [Règles communes](#règles-communes)
+      - [Règles REST](#règles-rest)
+    - [**Exemple** de documentation OpenAPI v3](#exemple-de-documentation-openapi-v3)
+      - [Format Json](#format-json)
+      - [Avec Swagger UI](#avec-swagger-ui)
+
+
 
 Les API REST - Representational State Transfert - sont de plus en plus populaires :
 
@@ -495,7 +504,7 @@ La Cafat pourrait être positionné au niveau 2 du modèle de maturité de Richa
 
 La question de documenter les APIs reste entière et il existe notamment un débat sur sa nécessité lorsque celles-ci sont fournies selon le plus haut niveau de maturité du modèle de Richardson (Niveau 3 : HATEOAS).
 
-Néanmoins, cette documentation doit être envisagée, au-delà de la lisibilité de l'API pour les développeurs, également pour sa testabilité, en particulier pour les APIs publiques.
+Néanmoins, cette documentation doit être envisagée, au-delà de la lisibilité de l'API pour les développeurs, également pour sa testabilité (via Swagger, CURL...), en particulier pour les APIs publiques.
 
 Si ce domaine est longtemps resté un lieu d'expérimentation (et de compétition), c'est désormais le format [OpenAPI v3](http://spec.openapis.org/oas/v3.0.3), initialement porté par le projet [swagger](https://swagger.io/), qui est adopté, y compris par les géants du Web. Le format OpenAPI est porté par le consortium [OpenAPI initiative](https://www.openapis.org) sous l'égide de la _Linux Foundation_.
 
@@ -539,4 +548,104 @@ En dehors des règles de grammaire, il est nécessaire de revoir le mode de gest
 
 ---
 
+## Annexes
 
+### **Exemples** de règles de grammaire / d'audit
+
+#### Règles communes
+
+Numéro | Règle | Niveau | Procédure | Correction | Commentaires
+--- | --- | --- | --- | --- | ---
+1 | Les branches mergées doivent être supprimées | **SHOULD** | Vérifier l'existence de branches marquées *merged* dans le gestionnaire de code source | Supprimer les branches mergées | Une branche mergée indique que le travail sur cette branche est terminé et que la branche a été rabattue. Il n'y a donc plus lieu de travaillé sur cette branche dont la conservation porte à confusion.
+2 | Le code source poussé sur le gestionnaire de code source ne contient pas de fichier lié à l'IDE | **MAY** | Vérifier que le fichier propre aux IDE sont inscrits dans le fichier `.gitignore` | Supprimer les fichiers concernés dans le gestionnaire de code source **ET** ajouter les *patterns* d'exclusion dans le fichier `.gitignore` | Les projets ne doivent pas être liés à un IDE en particulier. Les développeurs peuvent choisir un IDE en fonction de leur préférence, de leur status (prestataire externe, etc...)
+3 | Tout projet doit contenir un fichier **README.md** au format [Markdown](https://daringfireball.net/projects/markdown/) | **MUST** | Vérifier la présence du fichier `README.md` | Ajouter le fichier `README.md` | Le fichier README contient tous les éléments (cf règle #?) nécessaires à la prise en main du projet par un développeur.
+...
+
+#### Règles REST
+
+Numéro | Règle | Niveau | Procédure | Correction | Commentaires
+--- | --- | --- | --- | --- | ---
+1 | Les URIs des *endpoints* doivent être versionnés | **MUST** | Vérifier les URIs déclarées dans les *Controller* | Ajouter le numéro de version de l'API | Les endpoints doivent être préfixés par /api/**vX** où X est le numéro de version, sur un seul digit, relatif à la version majeure de l'API. Le but est d'assurer une visibilité sur l'évolution de l'API aux utilisateurs de ladite API (changements dans les structures de représentation (request / response), suppression / ajout de *endpoint(s)*, etc. ).
+2 | Les *endpoints* doivent accepter et retourner du JSON | **MUST** | Vérifier que les *controllers* ne surcharge pas le comportement par défaut (*consumes* et *produces*) par autre chose que du JSON. ATTENTION, la présence de la dépendance `jackson-dataformat-xml` dans le projet entraîne des échanges par défaut au format XML. Dans ce dernier cas, la déclaration des échanges au format JSON doit être explicite. | Déclarer explicitement le support des echanges au format JSON (*consumes* et *produces*) | Se conformer aux standards REST et homogénéiser les APIs (notamment pour les APIs publiques)
+...
+
+### **Exemple** de documentation OpenAPI v3
+
+#### Format Json
+
+```
+ "openapi": "3.0.1",
+    "info": {
+        "title": "Recouvrement - Déclaration de Ressources Anuuelles API",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        },
+        "version": "V0"
+    },
+    "servers": [
+        {
+            "url": "https://api-int.intra.cafat.nc/s-rec-dra-2.0"
+        }
+    ],
+    "paths": {
+        "/cotisants/{numeroCotisant}/{suffixe}/situation": {
+            "get": {
+                "tags": [
+                    "situation-cotisant-controller"
+                ],
+                "summary": "Recherche de la situation administrative d'un cotisant.",
+                "operationId": "getSituation",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "suffixe",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "annee",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "En cas d'erreur inconnue."
+                    },
+                    "200": {
+                        "description": "Retourne la situation administrative du cotisant.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SituationCotisantDTO"
+                                },
+                                "example": "{\n  \"civilite\": \"Mr\",\n  \"nomPatronymique\": \"COMMENGE\",\n  \"nomMarital\": null,\n  \"prenoms\": \"Jacky\",\n  \"dateNaissance\": \"31/12/1948\",\n  \"adresse\": {\n    \"numero\": \"9\",\n    \"voie\": \"AV. BOUTON\",\n    \"quartier\": \"NONDOUE\",\n    \"commune\": {\n      \"code\": 0\n    },\n    \"codePostal\": \"98830\",\n    \"pays\": {\n      \"code\": 0,\n      \"label\": \"NELLE CALEDONIE\",\n      \"labelCourt\": \"NLECALEDONIE\",\n      \"nationalite\": \"FRANCAISE\",\n      \"zoneGeographique\": 1,\n      \"codePostalObligatoire\": true,\n      \"codePaysISO\": \"NC\"\n    }\n  },\n  \"adresseFormattee\": null,\n  \"numeroAssure\": 395787,\n  \"ridet\": \"811323.001\",\n  \"dateDebutActivite\": \"12/06/2006\",\n  \"courriel\": \"\",\n  \"telephone\": [\n    \"963045\"\n  ],\n   \"profession\": [\n    {\n      \"codeProfession\": \"string\",\n      \"libelleProfession\": \"string\"\n    }\n  ],}"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+      (...)
+``` 
+
+#### Avec Swagger UI
+
+![Exemple OpenAPI v3 avec Swagger UI](./../resources/images/OpenAPIv3-swagger-exemple.PNG)
