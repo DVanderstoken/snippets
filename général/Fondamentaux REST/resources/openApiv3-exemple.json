@@ -1,0 +1,1048 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Recouvrement - Déclaration de Ressources Anuuelles API",
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        },
+        "version": "V0"
+    },
+    "servers": [
+        {
+            "url": "https://api-int.intra.cafat.nc/s-rec-dra-2.0"
+        }
+    ],
+    "paths": {
+        "/cotisants/{numeroCotisant}/{suffixe}/situation": {
+            "get": {
+                "tags": [
+                    "situation-cotisant-controller"
+                ],
+                "summary": "Recherche de la situation administrative d'un cotisant.",
+                "operationId": "getSituation",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "suffixe",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "annee",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "500": {
+                        "description": "En cas d'erreur inconnue."
+                    },
+                    "200": {
+                        "description": "Retourne la situation administrative du cotisant.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/SituationCotisantDTO"
+                                },
+                                "example": "{\n  \"civilite\": \"Mr\",\n  \"nomPatronymique\": \"COMMENGE\",\n  \"nomMarital\": null,\n  \"prenoms\": \"Jacky\",\n  \"dateNaissance\": \"31/12/1948\",\n  \"adresse\": {\n    \"numero\": \"9\",\n    \"voie\": \"AV. BOUTON\",\n    \"quartier\": \"NONDOUE\",\n    \"commune\": {\n      \"code\": 0\n    },\n    \"codePostal\": \"98830\",\n    \"pays\": {\n      \"code\": 0,\n      \"label\": \"NELLE CALEDONIE\",\n      \"labelCourt\": \"NLECALEDONIE\",\n      \"nationalite\": \"FRANCAISE\",\n      \"zoneGeographique\": 1,\n      \"codePostalObligatoire\": true,\n      \"codePaysISO\": \"NC\"\n    }\n  },\n  \"adresseFormattee\": null,\n  \"numeroAssure\": 395787,\n  \"ridet\": \"811323.001\",\n  \"dateDebutActivite\": \"12/06/2006\",\n  \"courriel\": \"\",\n  \"telephone\": [\n    \"963045\"\n  ],\n   \"profession\": [\n    {\n      \"codeProfession\": \"string\",\n      \"libelleProfession\": \"string\"\n    }\n  ],}"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cotisants/declarations-ressources/choix-arret-envoi-papier-checked": {
+            "get": {
+                "tags": [
+                    "choix-arret-envoi-papier-list-controller"
+                ],
+                "summary": "Lecture de la liste des cotisants étant soumis à l'arrêt de l'envoi de la DR papier",
+                "operationId": "findAllChecked",
+                "responses": {
+                    "200": {
+                        "description": "Retourne la liste des cotisants étant soumis à l'arrêt de l'envoi de la DR papier.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChoixArretEnvoiPapierDTO"
+                                },
+                                "example": {
+                                    "checked": true,
+                                    "numeroCotisant": "50001",
+                                    "origine": "WEB"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/parametres": {
+            "get": {
+                "tags": [
+                    "parametre-controller"
+                ],
+                "summary": "Recherche la valeur d'un parametre.",
+                "operationId": "getValue",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "EDRDD",
+                                "EDRTT",
+                                "DRDEF",
+                                "DRDER",
+                                "PLFSAL"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Le parametre interrogé n'existe pas ou sa valeur est indeterminée."
+                    },
+                    "200": {
+                        "description": "Retourne la valeur du paramètre.",
+                        "content": {
+                            "application/json": {
+                                "example": "2020-03-01 (date) pour la paramètre 'EDRDD' (date d'ouverture)."
+                            }
+                        }
+                    },
+                    "501": {
+                        "description": "Méthode non disponible pour le paramètre demandé."
+                    }
+                }
+            }
+        },
+        "/cotisants/{numeroCotisant}/{suffixe}/declarations-ressources": {
+            "get": {
+                "tags": [
+                    "declaration-ressources-annuelles-controller"
+                ],
+                "summary": "Recherches de Déclarations de Ressources Annuelles",
+                "description": "Recherche, pour un cotisant, ses Déclarations de Ressources Annuelles.",
+                "operationId": "get",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "suffixe",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "anneeRessources",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "action",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "TELECHARGER_EDR"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Retourne une liste de declarations pour le compte cotisant.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LightDeclarationRessourcesAnnuellesDTO"
+                                },
+                                "example": [
+                                    {
+                                        "id": {
+                                            "numeroCotisant": 56958,
+                                            "anneeRessources": 2017,
+                                            "typeRessources": "A",
+                                            "numeroPeriodeRessources": 0
+                                        },
+                                        "statut": "V",
+                                        "origin": "W",
+                                        "dateReception": 20180405
+                                    },
+                                    {
+                                        "id": {
+                                            "numeroCotisant": 56958,
+                                            "anneeRessources": 2018,
+                                            "typeRessources": "A",
+                                            "numeroPeriodeRessources": 0
+                                        },
+                                        "statut": "V",
+                                        "origin": "W",
+                                        "dateReception": 20190325
+                                    },
+                                    {
+                                        "id": {
+                                            "numeroCotisant": 56958,
+                                            "anneeRessources": 2016,
+                                            "typeRessources": "A",
+                                            "numeroPeriodeRessources": 0
+                                        },
+                                        "statut": "V",
+                                        "origin": " ",
+                                        "dateReception": 20170317
+                                    },
+                                    {
+                                        "id": {
+                                            "numeroCotisant": 56958,
+                                            "anneeRessources": 2019,
+                                            "typeRessources": null,
+                                            "numeroPeriodeRessources": 0
+                                        },
+                                        "statut": "A_SAISIR",
+                                        "origin": null,
+                                        "dateReception": 0
+                                    },
+                                    {
+                                        "id": {
+                                            "numeroCotisant": 56958,
+                                            "anneeRessources": 2015,
+                                            "typeRessources": "A",
+                                            "numeroPeriodeRessources": 0
+                                        },
+                                        "statut": "V",
+                                        "origin": " ",
+                                        "dateReception": 20151228
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Retourne la déclaration de ressources annuelles pour un compte cotisant et une année donnée.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeclarationRessourcesAnnuellesDTO"
+                                },
+                                "example": [
+                                    {
+                                        "id": 14859,
+                                        "statut": "VALIDE",
+                                        "dateReception": "2019-03-24",
+                                        "anneeRessources": 2018,
+                                        "dateDebutProratisation": null,
+                                        "dateFinProratisation": null,
+                                        "cotisationsSocialesObligatoires": 0,
+                                        "prestationsEspecesPercues": 0,
+                                        "assietteDeclaree": 2291524,
+                                        "assietteProratisee": 2291524,
+                                        "assietteRetenue": 2291524,
+                                        "casForfait": true,
+                                        "casBic": true,
+                                        "chiffreAffairesBic": 8684637,
+                                        "montantAchatsBic": 4101589,
+                                        "montantSalairesBic": 0,
+                                        "casBnc": false,
+                                        "montantRecettesBnc": null,
+                                        "casBa": false,
+                                        "chiffreAffairesBa": null,
+                                        "casSalaires": false,
+                                        "remunerationSalaires": null,
+                                        "fraisProfessionnelsSalaires": null,
+                                        "casReel": false,
+                                        "resultatFiscalReel": null,
+                                        "versementsVolontairesReel": null,
+                                        "fkCotisnp": 56958,
+                                        "fkDocumentGed": "2308486",
+                                        "suffixeCompteCotisant": 0
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "206": {
+                        "description": "Le cotisant est en situation de liquidation judiciaire ou d'interdiction de gérer."
+                    },
+                    "204": {
+                        "description": "Déclaration(s) de Ressources Annuelles non trouvée(s)."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "declaration-ressources-annuelles-controller"
+                ],
+                "summary": "Crée, pour un cotisant, sa Déclaration de Ressources Annuelles .",
+                "operationId": "create",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "suffixe",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeclarationRessourcesAnnuellesDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "425": {
+                        "description": "Lorsqu'il y a une tentative de créer une déclaration de ressources avant ouverture de la période de déclaration."
+                    },
+                    "429": {
+                        "description": "Lorsqu'il y a une tentative de créer une déclaration de ressources pour une année alors qu'il en existe déjà une pour cette même année."
+                    },
+                    "400": {
+                        "description": "La liste des messages correspondants aux violations des règles de gestion.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeclarationRessourcesAnnuellesConstraintViolation"
+                                }
+                            }
+                        }
+                    },
+                    "201": {
+                        "description": "Retourne la Déclaration de Ressources Annuelles créée.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeclarationRessourcesAnnuellesDTO"
+                                },
+                                "example": [
+                                    {
+                                        "id": {
+                                            "numeroCotisant": 42275,
+                                            "numeroAssure": 252922,
+                                            "numeroInterneCafat": "02002000003047",
+                                            "anneeRessources": 2016,
+                                            "typeRessources": "A",
+                                            "numeroPeriodeRessources": 0
+                                        },
+                                        "dateDeebut": 0,
+                                        "dateFin": 0,
+                                        "typeDeclaration": "D",
+                                        "assietteDeclaree": 0,
+                                        "assietteRetenue": 0,
+                                        "assietteFinale": 0,
+                                        "typeAssietteFinale": "R",
+                                        "declareAuPlafond": " ",
+                                        "casBIC": "N",
+                                        "chiffreAffairesBIC": 0,
+                                        "montantAchatsBIC": 0,
+                                        "montantSalairesBIC": 0,
+                                        "casBNC": "N",
+                                        "montantRecettesBNC": 0,
+                                        "casBA": "N",
+                                        "chiffreAffairesBA": 0,
+                                        "casSalaires": "N",
+                                        "salaireNetImposable": 0,
+                                        "montantFraisProfessionnelsJustifies": 0,
+                                        "casReel": "O",
+                                        "revenuNetCategorielReel": 0,
+                                        "mesuresDefiscalisationReel": 0,
+                                        "montantVersementsVolontaires": 0,
+                                        "reportDeficitaireReel": 0,
+                                        "amortissementsDifferes": 0,
+                                        "plusValueLongTerme": 0,
+                                        "moinsValiueLongTerme": 0,
+                                        "dateEmission": 0,
+                                        "dateCreation": 20170504,
+                                        "dateRetour": 20170428,
+                                        "dateDermiereMaj": 20170504,
+                                        "heureDerniereMaj": 0,
+                                        "agentCreation": 0,
+                                        "agentModification": 0,
+                                        "dateDoubleSaisie": 0,
+                                        "agentDoubleSaisie": 0,
+                                        "detectionErreurDoubleSaisie": " ",
+                                        "agentValidation": 45,
+                                        "dateValidation": 20170515,
+                                        "dateValidationAnterieure": 0,
+                                        "typeSaisie": " ",
+                                        "statutUnValidation": "V",
+                                        "typeValidation": "G",
+                                        "statutDeux": " ",
+                                        "statutTrois": "N",
+                                        "cotisationsSocialesObligatoires": 0,
+                                        "montantPrestationsEspeces": 0,
+                                        "montantSupplementaireDeux": 0,
+                                        "montantSupplementaireTrois": 0,
+                                        "agentCreationSurCinq": 2152,
+                                        "agentModificationSurCinq": 2152,
+                                        "agentDoubleSaisieSurCinq": 0,
+                                        "agentValidationSurCinq": 1045
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "declaration-ressources-annuelles-controller"
+                ],
+                "summary": "Supprime une déclaration de ressources par son identifiant technique (ID) ou pour une année donnée.",
+                "operationId": "delete",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "suffixe",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "draId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "annee",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La déclaration de ressources est supprimée."
+                    },
+                    "500": {
+                        "description": "Une erreur est survenue lors de la suppression de la déclaration de ressources."
+                    }
+                }
+            }
+        },
+        "/cotisants/{numeroCotisant}/{suffixe}/declarations-ressources/{draId}": {
+            "put": {
+                "tags": [
+                    "declaration-ressources-annuelles-controller"
+                ],
+                "summary": "Met à jour, pour un cotisant, sa Déclaration de Ressources Annuelles .",
+                "operationId": "update",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "suffixe",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "draId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DeclarationRessourcesAnnuellesDTO"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "400": {
+                        "description": "La liste des messages correspondants aux violations des règles de gestion."
+                    },
+                    "200": {
+                        "description": "Retourne la Déclaration de Ressources Annuelles créée.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DeclarationRessourcesAnnuellesDTO"
+                                },
+                                "example": {
+                                    "id": 1480,
+                                    "statut": "BROUILLON",
+                                    "dateReception": "2020-01-07",
+                                    "anneeRessources": 0,
+                                    "dateDebutProratisation": "2020-01-06",
+                                    "dateFinProratisation": "2020-01-06",
+                                    "cotisationsSocialesObligatoires": 0,
+                                    "prestationsEspecesPercues": 0,
+                                    "assietteDeclaree": 0,
+                                    "assietteProratisee": 0,
+                                    "assietteRetenue": 0,
+                                    "casForfait": true,
+                                    "casBic": true,
+                                    "chiffreAffairesBic": 0,
+                                    "montantAchatsBic": 0,
+                                    "montantSalairesBic": 0,
+                                    "casBnc": true,
+                                    "montantRecettesBnc": 0,
+                                    "casBa": true,
+                                    "chiffreAffairesBa": 0,
+                                    "casSalaires": true,
+                                    "remunerationSalaires": 0,
+                                    "fraisProfessionnelsSalaires": 0,
+                                    "casReel": true,
+                                    "resultatFiscalReel": 0,
+                                    "versementsVolontairesReel": 0,
+                                    "fkCotisnp": 111111,
+                                    "fkDocumentGed": "string",
+                                    "suffixeCompteCotisant": 0
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "declaration-ressources-annuelles-controller"
+                ],
+                "summary": "Supprime une déclaration de ressources par son identifiant technique (ID) ou pour une année donnée.",
+                "operationId": "delete_1",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "suffixe",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "draId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "annee",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "La déclaration de ressources est supprimée."
+                    },
+                    "500": {
+                        "description": "Une erreur est survenue lors de la suppression de la déclaration de ressources."
+                    }
+                }
+            }
+        },
+        "/cotisants/{numeroCotisant}/{suffixeCompteCotisant}/declarations-ressources/choix-arret-envoi-papier": {
+            "put": {
+                "tags": [
+                    "choix-arret-envoi-papier-controller"
+                ],
+                "summary": "Modification du choix de l'arrêt de l'envoi de la DR papier pour un cotisant",
+                "operationId": "update_1",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "suffixeCompteCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "checked",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retourne le choix de l'arrêt de l'envoi de la DR papier.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChoixArretEnvoiPapierDTO"
+                                },
+                                "example": {
+                                    "checked": true,
+                                    "numeroCotisant": "50001",
+                                    "origine": "WEB"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cotisants/{numeroCotisant}/declarations-ressources/choix-arret-envoi-papier": {
+            "get": {
+                "tags": [
+                    "choix-arret-envoi-papier-controller"
+                ],
+                "summary": "Lecture du choix de l'arrêt de l'envoi de la DR papier pour un cotisant",
+                "operationId": "getByNumeroCotisant",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retourne le choix de l'arrêt de l'envoi de la DR papier.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChoixArretEnvoiPapierDTO"
+                                },
+                                "example": {
+                                    "checked": true,
+                                    "numeroCotisant": "50001",
+                                    "origine": "WEB"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "choix-arret-envoi-papier-controller"
+                ],
+                "summary": "Modification du choix de l'arrêt de l'envoi de la DR papier pour un cotisant",
+                "operationId": "update_2",
+                "parameters": [
+                    {
+                        "name": "numeroCotisant",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "checked",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retourne le choix de l'arrêt de l'envoi de la DR papier.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ChoixArretEnvoiPapierDTO"
+                                },
+                                "example": {
+                                    "checked": true,
+                                    "numeroCotisant": "50001",
+                                    "origine": "WEB"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Adresse": {
+                "type": "object",
+                "properties": {
+                    "adresseLigne1": {
+                        "type": "string"
+                    },
+                    "adresseLigne2": {
+                        "type": "string"
+                    },
+                    "adresseLigne3": {
+                        "type": "string"
+                    },
+                    "adresseLigne4": {
+                        "type": "string"
+                    },
+                    "adresseLigne5": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Profession": {
+                "type": "object",
+                "properties": {
+                    "codeProfession": {
+                        "type": "string"
+                    },
+                    "libelleProfession": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SituationCotisantDTO": {
+                "type": "object",
+                "properties": {
+                    "civilite": {
+                        "type": "string"
+                    },
+                    "nomPatronymique": {
+                        "type": "string"
+                    },
+                    "nomMarital": {
+                        "type": "string"
+                    },
+                    "prenoms": {
+                        "type": "string"
+                    },
+                    "dateNaissance": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "adresse": {
+                        "$ref": "#/components/schemas/Adresse"
+                    },
+                    "adresseFormatee": {
+                        "type": "string"
+                    },
+                    "numeroAssure": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "ridet": {
+                        "type": "string"
+                    },
+                    "dateDebutActivite": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "courriel": {
+                        "type": "string"
+                    },
+                    "courrielValide": {
+                        "type": "boolean"
+                    },
+                    "telephone": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "profession": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Profession"
+                        }
+                    },
+                    "intituleCompte": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ChoixArretEnvoiPapierDTO": {
+                "type": "object",
+                "properties": {
+                    "checked": {
+                        "type": "boolean"
+                    },
+                    "numeroCotisant": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "origine": {
+                        "type": "string",
+                        "enum": [
+                            "OBLIGATION",
+                            "WEB",
+                            "INTERNE",
+                            "DEFAUT"
+                        ]
+                    }
+                }
+            },
+            "LightDeclarationRessourcesAnnuellesDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "$ref": "#/components/schemas/RessourcesTravailleurIndependantEntityKey"
+                    },
+                    "statut": {
+                        "type": "string"
+                    },
+                    "origin": {
+                        "type": "string"
+                    },
+                    "dateReception": {
+                        "type": "string",
+                        "format": "date"
+                    }
+                }
+            },
+            "RessourcesTravailleurIndependantEntityKey": {
+                "type": "object",
+                "properties": {
+                    "numeroCotisant": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "anneeRessources": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "typeRessources": {
+                        "type": "string"
+                    },
+                    "numeroPeriodeRessources": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "DeclarationRessourcesAnnuellesDTO": {
+                "required": [
+                    "anneeRessources",
+                    "dateReception",
+                    "statut"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "statut": {
+                        "type": "string",
+                        "enum": [
+                            "A_SAISIR",
+                            "BROUILLON",
+                            "VALIDE"
+                        ]
+                    },
+                    "dateReception": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "anneeRessources": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "dateDebutProratisation": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "dateFinProratisation": {
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "cotisationsSocialesObligatoires": {
+                        "type": "number"
+                    },
+                    "prestationsEspecesPercues": {
+                        "type": "number"
+                    },
+                    "assietteDeclaree": {
+                        "type": "number"
+                    },
+                    "assietteProratisee": {
+                        "type": "number"
+                    },
+                    "assietteRetenue": {
+                        "type": "number"
+                    },
+                    "casForfait": {
+                        "type": "boolean"
+                    },
+                    "casBic": {
+                        "type": "boolean"
+                    },
+                    "chiffreAffairesBic": {
+                        "type": "number"
+                    },
+                    "montantAchatsBic": {
+                        "type": "number"
+                    },
+                    "montantSalairesBic": {
+                        "type": "number"
+                    },
+                    "casBnc": {
+                        "type": "boolean"
+                    },
+                    "montantRecettesBnc": {
+                        "type": "number"
+                    },
+                    "casBa": {
+                        "type": "boolean"
+                    },
+                    "chiffreAffairesBa": {
+                        "type": "number"
+                    },
+                    "casSalaires": {
+                        "type": "boolean"
+                    },
+                    "remunerationSalaires": {
+                        "type": "number"
+                    },
+                    "fraisProfessionnelsSalaires": {
+                        "type": "number"
+                    },
+                    "casReel": {
+                        "type": "boolean"
+                    },
+                    "resultatFiscalReel": {
+                        "type": "number"
+                    },
+                    "versementsVolontairesReel": {
+                        "type": "number"
+                    },
+                    "fkCotisnp": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fkDocumentGed": {
+                        "type": "string"
+                    },
+                    "suffixeCompteCotisant": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "DeclarationRessourcesAnnuellesConstraintViolation": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "basicScheme": {
+                "type": "http",
+                "scheme": "basic"
+            }
+        }
+    }
+}
