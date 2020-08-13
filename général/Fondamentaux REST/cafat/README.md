@@ -19,7 +19,8 @@
   - [2 Pour une approche plus fine des requêtes de recherche (GET)](#2-pour-une-approche-plus-fine-des-requêtes-de-recherche-get)
   - [3 HATEOAS](#3-hateoas)
   - [4 Documenter les APIs REST](#4-documenter-les-apis-rest)
-  - [5 Et plus généralement...](#5-et-plus-généralement)
+  - [5 GraphQL](#5-graphql)
+  - [6 Et plus généralement...](#6-et-plus-généralement)
   - [Annexes](#annexes)
     - [**Exemples** de règles de grammaire / d'audit](#exemples-de-règles-de-grammaire--daudit)
       - [Règles communes](#règles-communes)
@@ -27,7 +28,6 @@
     - [**Exemple** de documentation OpenAPI v3](#exemple-de-documentation-openapi-v3)
       - [Format Json](#format-json)
       - [Avec Swagger UI](#avec-swagger-ui)
-
 
 
 Les API REST - Representational State Transfert - sont de plus en plus populaires :
@@ -116,7 +116,7 @@ Pour sa simplicité de mise en oeuvre, c'est la **première solution** qui est t
 ---
 **A la Cafat...**
 
-La gestion des versions des APIs est confondues avec le gestion des versions issues du cycle de développement et en particulier les numéros de version des livrables.
+La gestion des versions des APIs est confondues avec le gestion des versions issues du cycle de développement et en particulier les numéros de version des livrables. 
 
 Par ailleurs, la distinction des différentes versions est faite dans le _contextPath_ et non le _basePath_.
 
@@ -125,6 +125,7 @@ Chaque application cliente des APIs doit donc connaître explicitement la versio
 
 La gestion actuelle des versions des APIs peut également avoir un impact sur l'utilisation d'un outil de _service discovery_.
 
+**Néanmoins, le mode de gestion des versions est lié à la compléxité du système d'information de la Cafat, notamment la partie legacy, ainsi qu'à la granularité des APIs offertes. Même si le versionning n'est pas conforme aux pratiques REST largement répandues, il semble compliqué de le changer sans impact très important, notamment sur les tests métiers (non régression en particulier).**
 
 ---
 
@@ -523,8 +524,32 @@ La Cafat n'a pas émis de recommandations pour la documentation des ses APIs mai
 
 ---
 
+## 5 GraphQL
 
-## 5 Et plus généralement...
+GraphQL est un langage de requêtes pour API ainsi qu’un environnement pour exécuter ces requêtes. Il est défini par une [spécification](http://spec.graphql.org/June2018/) indépendante des langages de programmation et des protocoles de transport. A l'origine, GraphQL a été créé pour répondre à la problématique de transfert de données vers les terminaux mobiles (congestion du réseau, faible débit, etc.) afin que ceux-ci disposent en un seul transfert des informations minimales nécessaires au fonctionnement de l'application mobile.
+
+L'environnement d'exécution de GraphQL est une couche d'interprétation des requêtes du même langage, et de routage desdites requêtes, reçues via un _payload_ POST (uniquement).
+
+![REST vs GraphQL](../resources/images/graphql-vs-rest.png)
+
+La notion de base est le [_schéma_](https://graphql.org/learn/schema/) de définition des ressources et des opérations. Les utilisateurs de l'API pourront avec ce schéma connaître les manipulations possibles sur les ressources. Le schéma est également utilisé pour valider les requêtes (_Query_ ou _Mutation_).
+
+
+GraphQL permet de résoudre : 
+- l'_over fetching_ :  le surplus d’informations délivrées par la requête par rapport à la donnée désirée par le client
+- l'_under fetching_ : la nécessité de faire plusieurs appels aux APIs pour obtenir l'ensemble des informations désirées
+
+A l'inverse, la grande liberté offerte aux clients de l'API impose une gestion du cache de données applicatif plus complexe (requêtes multiples, combinaison des ressources, personnalisation des attributs, ordre de classement, etc.). L'absence de contrôle sur le mode de construction des requêtes peut également avoir un impact sur les performance des serveurs, voire à un DDoS.
+
+**Attention**, si le langage GraphQL ressemble beaucoup à du Json, ce n'est pas du Json !
+
+GraphQL peut donc être considéré comme une alternative ou un complèment au style d'architecture REST pour :
+- les applications mobiles (adaptation des APIs pour prendre en compte les contraintes des réseaux mobiles)
+- la mise à disposition d'APIs publiques de type OpenData.
+
+
+
+## 6 Et plus généralement...
 
 _**keep it simple, stupid**_ :
 * N'importe quel développeur devrait pouvoir utiliser une API sans être obligé de se référer à la documentation. Mais si l'API est bien documentée, c'est mieux !
@@ -544,7 +569,7 @@ Au delà de la définition d'une grammaire REST, il faut aussi qu'elle soit part
 
 Il faut bien sûr qu'elle soit appliquée et sa mise en oeuvre doit être vérifiée. Il n'existe cependant pas de solution automatisée et seules les revues de code, notamment lors des _pull requests_ permettent cette vérification.
 
-En dehors des règles de grammaire, il est nécessaire de revoir le mode de gestion des versions des APIs REST. En particulier il faut séparer le versioning des APIs du versioning des livrables pour revenir dans les standards REST.
+En dehors des règles de grammaire, il faudrait envisager de revoir le mode de gestion des versions des APIs REST en relation avec une révision de leur granularité, et donc du découpage (urbanisation, architecture fonctionnelle, décommissionnement de services obsolètes...) des APIs pour revenir dans les standards REST.
 
 ---
 
