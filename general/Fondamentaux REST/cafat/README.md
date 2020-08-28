@@ -365,7 +365,7 @@ Si la recherche est multi-ressources (ou globale), on parle de recherche multi-c
 /search?q=country+germany
 ```
 
-Par ailleurs, les résultats des recherches devraient, le cas échéant, être paginés. L'introduction de la pagination va de facto introduire des mots clés réservés qui ne seron plus utilisables par ailleurs dans l'URI, en général : 
+Par ailleurs, les résultats des recherches devraient, le cas échéant, être paginés. L'introduction de la pagination va de facto introduire des mots clés réservés qui ne seront plus utilisables par ailleurs dans l'URI, en général : 
 - *__first__*,
 - *__last__*,
 - *__count__*,
