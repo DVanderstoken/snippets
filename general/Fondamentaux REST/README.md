@@ -212,8 +212,6 @@ https://api.geolocation.example.com/v1/countries/DEU/regions
 
 **Quelle que soient les règles, il faut les appliquer systématiquement pour assurer la cohérence, l' homogénéité, l' "explorabilité" et la lisibilité des APIs fournies aux développeurs et / ou aux clients.**
 
-**Globalement, l'ensemble des règles déjà en place à la Cafat ne sont pas systématiquement appliquées. Il en résulte un manque flagrant d'homogénéité dans l'identification et la manipulation des ressources.**
-
 ---
 
 ### 1.2 Gestion des erreurs
