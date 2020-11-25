@@ -1,0 +1,7 @@
+FROM keycloak-common:latest
+EXPOSE 8230/tcp
+EXPOSE 9999/tcp
+EXPOSE 9999/udp
+EXPOSE 9990/tcp
+EXPOSE 9990/udp
+ENTRYPOINT ["./keycloak/bin/domain.sh",  "--host-config=host-master.xml", "-b=keycloak-master", "--master-address=keycloak-master"]

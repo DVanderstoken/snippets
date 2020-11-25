@@ -1,0 +1,13 @@
+2020-11-25 14:00:11,878 INFO  [org.jboss.modules] (main) JBoss Modules version 1.10.1.Final
+2020-11-25 14:00:12,201 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-11-25 14:00:12,213 INFO  [org.jboss.as.process.Host Controller.status] (main) WFLYPC0018: Starting process 'Host Controller'
+2020-11-25 14:00:18,234 INFO  [org.jboss.as.process.Server:server-two.status] (ProcessController-threads - 3) WFLYPC0018: Starting process 'Server:server-two'
+2020-11-25 14:04:56,028 INFO  [org.jboss.as.process] (Shutdown thread) WFLYPC0017: Shutting down process controller
+2020-11-25 14:04:56,041 INFO  [org.jboss.as.proce2020-11-25 14:05:13,933 INFO  [org.jboss.as.process] (Shutdown thread) WFLYPC0017: Shutting down process controller
+2020-11-25 14:05:13,941 INFO  [org.jboss.as.process.Host Controller.status] (Shutdown thread) WFLYPC0019: Stopping process 'Host Controller'
+2020-11-25 14:05:14,085 INFO  [org.jboss.as.process.Server:server-one.status] (ProcessController-threads - 4) WFLYPC0019: Stopping process 'Server:server-one'
+2020-11-25 14:05:14,120 INFO  [org.jboss.as.process.Server:load-balancer.status] (ProcessController-threads - 5) WFLYPC0019: Stopping process 'Server:load-balancer'
+2020-11-25 14:05:14,195 INFO  [org.jboss.as.process.Server:load-balancer.status] (reaper for Server:load-balancer) WFLYPC0011: Process 'Server:load-balancer' finished with an exit status of 130
+2020-11-25 14:05:14,779 INFO  [org.jboss.as.process.Server:server-one.status] (reaper for Server:server-one) WFLYPC0011: Process 'Server:server-one' finished with an exit status of 130
+2020-11-25 14:05:14,830 INFO  [org.jboss.as.process.Host Controller.status] (reaper for Host Controller) WFLYPC0011: Process 'Host Controller' finished with an exit status of 130
+2020-11-25 14:05:14,831 INFO  [org.jboss.as.process] (Shutdown thread) WFLYPC0016: All processes finished; exiting

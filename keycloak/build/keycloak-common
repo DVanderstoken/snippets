@@ -1,0 +1,4 @@
+FROM alpine:3.12
+RUN apk --no-cache add openjdk11-jre-headless --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+RUN mkdir /keycloak
+COPY ./resources/keycloak-11 /keycloak/

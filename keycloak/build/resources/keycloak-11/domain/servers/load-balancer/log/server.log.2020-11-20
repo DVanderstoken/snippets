@@ -1,0 +1,688 @@
+2020-11-20 13:08:31,613 INFO  [org.jboss.modules] (main) JBoss Modules version 1.10.1.Final
+2020-11-20 13:08:32,106 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.11.Final
+2020-11-20 13:08:32,116 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-11-20 13:08:32,310 INFO  [org.jboss.as] (MSC service thread 1-3) WFLYSRV0049: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) starting
+2020-11-20 13:08:32,314 DEBUG [org.jboss.as.config] (MSC service thread 1-3) Configured system properties:
+	[Server:load-balancer] = 
+	[pcid:205744343] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-amd64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Ubuntu
+	java.vendor.url = https://ubuntu.com/
+	java.vendor.url.bug = https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+	java.version = 11.0.9
+	java.version.date = 2020-10-20
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Ubuntu
+	java.vm.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.domain.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain
+	jboss.domain.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration
+	jboss.home.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	jboss.host.name = mi3074
+	jboss.modules.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = master:load-balancer
+	jboss.qualified.host.name = mi3074
+	jboss.server.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer
+	jboss.server.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/configuration
+	jboss.server.data.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data
+	jboss.server.deploy.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/content
+	jboss.server.log.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log
+	jboss.server.name = load-balancer
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration/default-server-logging.properties
+	module.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	org.jboss.boot.log.file = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log/server.log
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Linux
+	os.version = 5.4.0-26-generic
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-amd64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar -mp /home/presta/Documents/keycloak/build/resources/keycloak-11/modules org.jboss.as.server
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = FR
+	user.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	user.home = /home/presta
+	user.language = fr
+	user.name = presta
+	user.timezone = Pacific/Noumea
+2020-11-20 13:08:32,320 DEBUG [org.jboss.as.config] (MSC service thread 1-3) VM Arguments: --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED -D[Server:load-balancer] -D[pcid:205744343] -Xms64m -Xmx512m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=256m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.home.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11 -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.server.log.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log -Djboss.server.temp.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp -Djboss.server.data.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data -Dorg.jboss.boot.log.file=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log/server.log -Dlogging.configuration=file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration/default-server-logging.properties 
+2020-11-20 13:08:32,550 INFO  [org.xnio] (MSC service thread 1-2) XNIO version 3.8.1.Final
+2020-11-20 13:08:32,564 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.8.1.Final
+2020-11-20 13:08:32,619 INFO  [org.jboss.remoting] (MSC service thread 1-8) JBoss Remoting version 5.0.18.Final
+2020-11-20 13:08:32,983 INFO  [org.wildfly.security] (ServerService Thread Pool -- 2) ELY00001: WildFly Elytron version 1.12.1.Final
+2020-11-20 13:08:35,100 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 5) WFLYIO001: Worker 'default' has auto-configured to 8 IO threads with 64 max task threads based on your 4 available processors
+2020-11-20 13:08:35,111 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.1.3.Final starting
+2020-11-20 13:08:35,198 WARN  [org.wildfly.clustering.web.undertow] (ServerService Thread Pool -- 25) WFLYCLWEBUT0007: No routing provider found for default-server; using legacy provider based on static configuration
+2020-11-20 13:08:35,275 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0012: Started server default-server.
+2020-11-20 13:08:35,284 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0018: Host default-host starting
+2020-11-20 13:08:35,324 INFO  [io.undertow] (MSC service thread 1-6) UT005039: Undertow starts mod_cluster proxy advertisements on /224.0.1.105:23364 with frequency 10000 ms
+2020-11-20 13:08:35,355 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener management listening on 127.0.0.1:8090
+2020-11-20 13:08:35,355 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2020-11-20 13:08:35,396 INFO  [org.jboss.as.patching] (MSC service thread 1-7) WFLYPAT0050: Keycloak cumulative patch ID is: base, one-off patches include: none
+2020-11-20 13:08:35,445 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-2) WFLYDM0111: Keystore /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2020-11-20 13:08:35,518 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2020-11-20 13:08:35,523 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) started in 4568ms - Started 75 of 90 services (41 services are lazy, passive or on-demand)
+2020-11-20 13:08:49,234 INFO  [io.undertow] (default task-1) UT005053: Registering node master:server-one, connection: ajp://127.0.0.1:8159/?#
+2020-11-20 13:08:49,252 INFO  [io.undertow] (default task-2) UT005045: Registering context /, for node master:server-one
+2020-11-20 13:08:49,260 INFO  [io.undertow] (default task-1) UT005045: Registering context /wildfly-services, for node master:server-one
+2020-11-20 13:08:59,307 INFO  [io.undertow] (default task-2) UT005045: Registering context /auth, for node master:server-one
+2020-11-20 13:09:46,250 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2020-11-20 13:09:46,254 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2020-11-20 13:09:46,264 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener management suspending
+2020-11-20 13:09:46,266 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener management stopped, was bound to 127.0.0.1:8090
+2020-11-20 13:09:46,272 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0008: Undertow HTTP listener default suspending
+2020-11-20 13:09:46,278 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0019: Host default-host stopping
+2020-11-20 13:09:46,278 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2020-11-20 13:09:46,315 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0004: Undertow 2.1.3.Final stopping
+2020-11-20 13:09:46,406 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0050: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) stopped in 109ms
+2020-11-20 13:59:16,573 INFO  [org.jboss.modules] (main) JBoss Modules version 1.10.1.Final
+2020-11-20 13:59:16,971 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.11.Final
+2020-11-20 13:59:16,978 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-11-20 13:59:17,091 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) starting
+2020-11-20 13:59:17,095 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	[Server:load-balancer] = 
+	[pcid:1411714517] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-amd64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Ubuntu
+	java.vendor.url = https://ubuntu.com/
+	java.vendor.url.bug = https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+	java.version = 11.0.9
+	java.version.date = 2020-10-20
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Ubuntu
+	java.vm.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.domain.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain
+	jboss.domain.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration
+	jboss.home.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	jboss.host.name = mi3074
+	jboss.modules.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = master:load-balancer
+	jboss.qualified.host.name = mi3074
+	jboss.server.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer
+	jboss.server.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/configuration
+	jboss.server.data.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data
+	jboss.server.deploy.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/content
+	jboss.server.log.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log
+	jboss.server.name = load-balancer
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties
+	module.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Linux
+	os.version = 5.4.0-26-generic
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-amd64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar -mp /home/presta/Documents/keycloak/build/resources/keycloak-11/modules org.jboss.as.server
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = FR
+	user.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	user.home = /home/presta
+	user.language = fr
+	user.name = presta
+	user.timezone = Pacific/Noumea
+2020-11-20 13:59:17,098 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED -D[Server:load-balancer] -D[pcid:1411714517] -Xms64m -Xmx512m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=256m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.home.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11 -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.server.log.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log -Djboss.server.temp.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp -Djboss.server.data.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data -Dlogging.configuration=file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties 
+2020-11-20 13:59:17,239 INFO  [org.xnio] (MSC service thread 1-7) XNIO version 3.8.1.Final
+2020-11-20 13:59:17,248 INFO  [org.xnio.nio] (MSC service thread 1-7) XNIO NIO Implementation Version 3.8.1.Final
+2020-11-20 13:59:17,275 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 5.0.18.Final
+2020-11-20 13:59:17,617 INFO  [org.wildfly.security] (ServerService Thread Pool -- 2) ELY00001: WildFly Elytron version 1.12.1.Final
+2020-11-20 13:59:19,996 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0003: Undertow 2.1.3.Final starting
+2020-11-20 13:59:19,994 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 11) WFLYIO001: Worker 'default' has auto-configured to 8 IO threads with 64 max task threads based on your 4 available processors
+2020-11-20 13:59:20,084 WARN  [org.wildfly.clustering.web.undertow] (ServerService Thread Pool -- 25) WFLYCLWEBUT0007: No routing provider found for default-server; using legacy provider based on static configuration
+2020-11-20 13:59:20,222 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+2020-11-20 13:59:20,272 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0018: Host default-host starting
+2020-11-20 13:59:20,301 INFO  [io.undertow] (MSC service thread 1-4) UT005039: Undertow starts mod_cluster proxy advertisements on /224.0.1.105:23364 with frequency 10000 ms
+2020-11-20 13:59:20,389 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2020-11-20 13:59:20,388 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTP listener management listening on 127.0.0.1:8090
+2020-11-20 13:59:20,488 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: Keycloak cumulative patch ID is: base, one-off patches include: none
+2020-11-20 13:59:20,535 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-3) WFLYDM0111: Keystore /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2020-11-20 13:59:20,650 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2020-11-20 13:59:20,658 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) started in 4653ms - Started 75 of 90 services (41 services are lazy, passive or on-demand)
+2020-11-20 13:59:34,527 INFO  [io.undertow] (default task-2) UT005053: Registering node master:server-one, connection: ajp://127.0.0.1:8159/?#
+2020-11-20 13:59:34,533 INFO  [io.undertow] (default task-2) UT005045: Registering context /, for node master:server-one
+2020-11-20 13:59:34,548 INFO  [io.undertow] (default task-2) UT005045: Registering context /wildfly-services, for node master:server-one
+2020-11-20 13:59:44,577 INFO  [io.undertow] (default task-2) UT005045: Registering context /auth, for node master:server-one
+2020-11-20 13:59:59,430 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2020-11-20 13:59:59,433 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2020-11-20 13:59:59,446 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0008: Undertow HTTP listener default suspending
+2020-11-20 13:59:59,447 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0008: Undertow HTTP listener management suspending
+2020-11-20 13:59:59,448 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2020-11-20 13:59:59,449 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0007: Undertow HTTP listener management stopped, was bound to 127.0.0.1:8090
+2020-11-20 13:59:59,455 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0019: Host default-host stopping
+2020-11-20 13:59:59,474 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0004: Undertow 2.1.3.Final stopping
+2020-11-20 13:59:59,544 INFO  [org.jboss.as] (MSC service thread 1-6) WFLYSRV0050: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) stopped in 73ms
+2020-11-20 14:01:03,534 INFO  [org.jboss.modules] (main) JBoss Modules version 1.10.1.Final
+2020-11-20 14:01:03,924 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.11.Final
+2020-11-20 14:01:03,931 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-11-20 14:01:04,080 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) starting
+2020-11-20 14:01:04,082 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	[Server:load-balancer] = 
+	[pcid:1712124708] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-amd64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Ubuntu
+	java.vendor.url = https://ubuntu.com/
+	java.vendor.url.bug = https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+	java.version = 11.0.9
+	java.version.date = 2020-10-20
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Ubuntu
+	java.vm.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.domain.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain
+	jboss.domain.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration
+	jboss.home.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	jboss.host.name = mi3074
+	jboss.modules.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = master:load-balancer
+	jboss.qualified.host.name = mi3074
+	jboss.server.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer
+	jboss.server.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/configuration
+	jboss.server.data.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data
+	jboss.server.deploy.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/content
+	jboss.server.log.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log
+	jboss.server.name = load-balancer
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties
+	module.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Linux
+	os.version = 5.4.0-26-generic
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-amd64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar -mp /home/presta/Documents/keycloak/build/resources/keycloak-11/modules org.jboss.as.server
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = FR
+	user.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	user.home = /home/presta
+	user.language = fr
+	user.name = presta
+	user.timezone = Pacific/Noumea
+2020-11-20 14:01:04,086 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED -D[Server:load-balancer] -D[pcid:1712124708] -Xms64m -Xmx512m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=256m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.home.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11 -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.server.log.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log -Djboss.server.temp.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp -Djboss.server.data.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data -Dlogging.configuration=file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties 
+2020-11-20 14:01:04,272 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.8.1.Final
+2020-11-20 14:01:04,294 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.8.1.Final
+2020-11-20 14:01:04,325 INFO  [org.jboss.remoting] (MSC service thread 1-3) JBoss Remoting version 5.0.18.Final
+2020-11-20 14:01:04,659 INFO  [org.wildfly.security] (ServerService Thread Pool -- 2) ELY00001: WildFly Elytron version 1.12.1.Final
+2020-11-20 14:01:06,675 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 7) WFLYIO001: Worker 'default' has auto-configured to 8 IO threads with 64 max task threads based on your 4 available processors
+2020-11-20 14:01:06,704 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0003: Undertow 2.1.3.Final starting
+2020-11-20 14:01:06,825 WARN  [org.wildfly.clustering.web.undertow] (ServerService Thread Pool -- 24) WFLYCLWEBUT0007: No routing provider found for default-server; using legacy provider based on static configuration
+2020-11-20 14:01:06,959 INFO  [io.undertow] (MSC service thread 1-3) UT005039: Undertow starts mod_cluster proxy advertisements on /224.0.1.105:23364 with frequency 10000 ms
+2020-11-20 14:01:06,956 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0012: Started server default-server.
+2020-11-20 14:01:06,970 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0018: Host default-host starting
+2020-11-20 14:01:07,086 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTP listener management listening on 127.0.0.1:8090
+2020-11-20 14:01:07,087 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2020-11-20 14:01:07,132 INFO  [org.jboss.as.patching] (MSC service thread 1-8) WFLYPAT0050: Keycloak cumulative patch ID is: base, one-off patches include: none
+2020-11-20 14:01:07,156 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-2) WFLYDM0111: Keystore /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2020-11-20 14:01:07,246 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2020-11-20 14:01:07,251 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) started in 4284ms - Started 75 of 90 services (41 services are lazy, passive or on-demand)
+2020-11-20 14:01:21,223 INFO  [io.undertow] (default task-2) UT005053: Registering node master:server-one, connection: ajp://127.0.0.1:8159/?#
+2020-11-20 14:01:21,231 INFO  [io.undertow] (default task-1) UT005045: Registering context /, for node master:server-one
+2020-11-20 14:01:21,243 INFO  [io.undertow] (default task-1) UT005045: Registering context /wildfly-services, for node master:server-one
+2020-11-20 14:01:31,319 INFO  [io.undertow] (default task-1) UT005045: Registering context /auth, for node master:server-one
+2020-11-20 14:25:16,810 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2020-11-20 14:25:16,828 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2020-11-20 14:25:16,835 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0008: Undertow HTTP listener default suspending
+2020-11-20 14:25:16,852 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTP listener management suspending
+2020-11-20 14:25:16,853 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTP listener management stopped, was bound to 127.0.0.1:8090
+2020-11-20 14:25:16,855 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2020-11-20 14:25:16,867 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0019: Host default-host stopping
+2020-11-20 14:25:16,891 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0004: Undertow 2.1.3.Final stopping
+2020-11-20 14:25:16,935 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) stopped in 28ms
+2020-11-20 14:25:24,654 INFO  [org.jboss.modules] (main) JBoss Modules version 1.10.1.Final
+2020-11-20 14:25:25,058 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.11.Final
+2020-11-20 14:25:25,069 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-11-20 14:25:25,210 INFO  [org.jboss.as] (MSC service thread 1-3) WFLYSRV0049: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) starting
+2020-11-20 14:25:25,214 DEBUG [org.jboss.as.config] (MSC service thread 1-3) Configured system properties:
+	[Server:load-balancer] = 
+	[pcid:973195717] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-amd64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Ubuntu
+	java.vendor.url = https://ubuntu.com/
+	java.vendor.url.bug = https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+	java.version = 11.0.9
+	java.version.date = 2020-10-20
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Ubuntu
+	java.vm.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.domain.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain
+	jboss.domain.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration
+	jboss.home.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	jboss.host.name = mi3074
+	jboss.modules.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = master:load-balancer
+	jboss.qualified.host.name = mi3074
+	jboss.server.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer
+	jboss.server.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/configuration
+	jboss.server.data.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data
+	jboss.server.deploy.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/content
+	jboss.server.log.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log
+	jboss.server.name = load-balancer
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties
+	module.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Linux
+	os.version = 5.4.0-26-generic
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-amd64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar -mp /home/presta/Documents/keycloak/build/resources/keycloak-11/modules org.jboss.as.server
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = FR
+	user.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	user.home = /home/presta
+	user.language = fr
+	user.name = presta
+	user.timezone = Pacific/Noumea
+2020-11-20 14:25:25,218 DEBUG [org.jboss.as.config] (MSC service thread 1-3) VM Arguments: --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED -D[Server:load-balancer] -D[pcid:973195717] -Xms64m -Xmx512m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=256m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.home.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11 -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.server.log.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log -Djboss.server.temp.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp -Djboss.server.data.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data -Dlogging.configuration=file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties 
+2020-11-20 14:25:25,366 INFO  [org.xnio] (MSC service thread 1-3) XNIO version 3.8.1.Final
+2020-11-20 14:25:25,377 INFO  [org.xnio.nio] (MSC service thread 1-3) XNIO NIO Implementation Version 3.8.1.Final
+2020-11-20 14:25:25,435 INFO  [org.jboss.remoting] (MSC service thread 1-6) JBoss Remoting version 5.0.18.Final
+2020-11-20 14:25:25,785 INFO  [org.wildfly.security] (ServerService Thread Pool -- 2) ELY00001: WildFly Elytron version 1.12.1.Final
+2020-11-20 14:25:27,831 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 25) WFLYIO001: Worker 'default' has auto-configured to 8 IO threads with 64 max task threads based on your 4 available processors
+2020-11-20 14:25:27,855 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 2.1.3.Final starting
+2020-11-20 14:25:27,960 WARN  [org.wildfly.clustering.web.undertow] (ServerService Thread Pool -- 5) WFLYCLWEBUT0007: No routing provider found for default-server; using legacy provider based on static configuration
+2020-11-20 14:25:28,066 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0012: Started server default-server.
+2020-11-20 14:25:28,070 INFO  [io.undertow] (MSC service thread 1-7) UT005039: Undertow starts mod_cluster proxy advertisements on /224.0.1.105:23364 with frequency 10000 ms
+2020-11-20 14:25:28,068 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0018: Host default-host starting
+2020-11-20 14:25:28,124 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTP listener management listening on 127.0.0.1:8090
+2020-11-20 14:25:28,125 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2020-11-20 14:25:28,192 INFO  [org.jboss.as.patching] (MSC service thread 1-8) WFLYPAT0050: Keycloak cumulative patch ID is: base, one-off patches include: none
+2020-11-20 14:25:28,233 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-8) WFLYDM0111: Keystore /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2020-11-20 14:25:28,336 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2020-11-20 14:25:28,348 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) started in 4265ms - Started 75 of 90 services (41 services are lazy, passive or on-demand)
+2020-11-20 14:25:42,071 INFO  [io.undertow] (default task-1) UT005053: Registering node master:server-one, connection: ajp://127.0.0.1:8159/?#
+2020-11-20 14:25:42,076 INFO  [io.undertow] (default task-2) UT005045: Registering context /, for node master:server-one
+2020-11-20 14:25:42,083 INFO  [io.undertow] (default task-2) UT005045: Registering context /wildfly-services, for node master:server-one
+2020-11-20 14:25:52,120 INFO  [io.undertow] (default task-1) UT005045: Registering context /auth, for node master:server-one
+2020-11-20 14:31:49,594 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2020-11-20 14:31:49,601 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2020-11-20 14:31:49,613 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener default suspending
+2020-11-20 14:31:49,614 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2020-11-20 14:31:49,618 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener management suspending
+2020-11-20 14:31:49,618 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener management stopped, was bound to 127.0.0.1:8090
+2020-11-20 14:31:49,624 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0019: Host default-host stopping
+2020-11-20 14:31:49,625 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0004: Undertow 2.1.3.Final stopping
+2020-11-20 14:31:49,683 INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) stopped in 65ms
+2020-11-20 14:40:42,714 INFO  [org.jboss.modules] (main) JBoss Modules version 1.10.1.Final
+2020-11-20 14:40:43,098 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.11.Final
+2020-11-20 14:40:43,108 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-11-20 14:40:43,248 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) starting
+2020-11-20 14:40:43,254 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	[Server:load-balancer] = 
+	[pcid:391921842] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-amd64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Ubuntu
+	java.vendor.url = https://ubuntu.com/
+	java.vendor.url.bug = https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+	java.version = 11.0.9
+	java.version.date = 2020-10-20
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Ubuntu
+	java.vm.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.domain.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain
+	jboss.domain.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration
+	jboss.home.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	jboss.host.name = mi3074
+	jboss.modules.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = master:load-balancer
+	jboss.qualified.host.name = mi3074
+	jboss.server.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer
+	jboss.server.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/configuration
+	jboss.server.data.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data
+	jboss.server.deploy.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/content
+	jboss.server.log.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log
+	jboss.server.name = load-balancer
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties
+	module.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Linux
+	os.version = 5.4.0-26-generic
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-amd64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar -mp /home/presta/Documents/keycloak/build/resources/keycloak-11/modules org.jboss.as.server
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = FR
+	user.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	user.home = /home/presta
+	user.language = fr
+	user.name = presta
+	user.timezone = Pacific/Noumea
+2020-11-20 14:40:43,261 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED -D[Server:load-balancer] -D[pcid:391921842] -Xms64m -Xmx512m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=256m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.home.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11 -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.server.log.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log -Djboss.server.temp.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp -Djboss.server.data.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data -Dlogging.configuration=file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties 
+2020-11-20 14:40:43,452 INFO  [org.xnio] (MSC service thread 1-8) XNIO version 3.8.1.Final
+2020-11-20 14:40:43,466 INFO  [org.xnio.nio] (MSC service thread 1-8) XNIO NIO Implementation Version 3.8.1.Final
+2020-11-20 14:40:43,496 INFO  [org.jboss.remoting] (MSC service thread 1-7) JBoss Remoting version 5.0.18.Final
+2020-11-20 14:40:43,843 INFO  [org.wildfly.security] (ServerService Thread Pool -- 2) ELY00001: WildFly Elytron version 1.12.1.Final
+2020-11-20 14:40:45,789 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 5) WFLYIO001: Worker 'default' has auto-configured to 8 IO threads with 64 max task threads based on your 4 available processors
+2020-11-20 14:40:45,819 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0003: Undertow 2.1.3.Final starting
+2020-11-20 14:40:45,942 WARN  [org.wildfly.clustering.web.undertow] (ServerService Thread Pool -- 25) WFLYCLWEBUT0007: No routing provider found for default-server; using legacy provider based on static configuration
+2020-11-20 14:40:46,034 INFO  [io.undertow] (MSC service thread 1-5) UT005039: Undertow starts mod_cluster proxy advertisements on /224.0.1.105:23364 with frequency 10000 ms
+2020-11-20 14:40:46,040 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0012: Started server default-server.
+2020-11-20 14:40:46,091 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0018: Host default-host starting
+2020-11-20 14:40:46,109 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0006: Undertow HTTP listener management listening on 127.0.0.1:8090
+2020-11-20 14:40:46,112 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2020-11-20 14:40:46,215 INFO  [org.jboss.as.patching] (MSC service thread 1-4) WFLYPAT0050: Keycloak cumulative patch ID is: base, one-off patches include: none
+2020-11-20 14:40:46,237 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-6) WFLYDM0111: Keystore /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2020-11-20 14:40:46,360 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2020-11-20 14:40:46,365 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) started in 4251ms - Started 75 of 90 services (41 services are lazy, passive or on-demand)
+2020-11-20 14:41:00,592 INFO  [io.undertow] (default task-1) UT005053: Registering node master:server-one, connection: ajp://127.0.0.1:8159/?#
+2020-11-20 14:41:00,605 INFO  [io.undertow] (default task-2) UT005045: Registering context /, for node master:server-one
+2020-11-20 14:41:00,611 INFO  [io.undertow] (default task-1) UT005045: Registering context /wildfly-services, for node master:server-one
+2020-11-20 14:41:10,697 INFO  [io.undertow] (default task-3) UT005045: Registering context /auth, for node master:server-one
+2020-11-20 14:41:53,819 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2020-11-20 14:41:53,850 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2020-11-20 14:41:53,873 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0008: Undertow HTTP listener default suspending
+2020-11-20 14:41:53,872 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0019: Host default-host stopping
+2020-11-20 14:41:53,876 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2020-11-20 14:41:53,880 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0008: Undertow HTTP listener management suspending
+2020-11-20 14:41:53,881 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0007: Undertow HTTP listener management stopped, was bound to 127.0.0.1:8090
+2020-11-20 14:41:53,940 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0004: Undertow 2.1.3.Final stopping
+2020-11-20 14:41:53,993 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0050: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) stopped in 59ms
+2020-11-20 14:42:01,708 INFO  [org.jboss.modules] (main) JBoss Modules version 1.10.1.Final
+2020-11-20 14:42:02,109 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.11.Final
+2020-11-20 14:42:02,120 INFO  [org.jboss.threads] (main) JBoss Threads version 2.3.3.Final
+2020-11-20 14:42:02,273 INFO  [org.jboss.as] (MSC service thread 1-2) WFLYSRV0049: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) starting
+2020-11-20 14:42:02,277 DEBUG [org.jboss.as.config] (MSC service thread 1-2) Configured system properties:
+	[Server:load-balancer] = 
+	[pcid:659737622] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar
+	java.class.version = 55.0
+	java.home = /usr/lib/jvm/java-11-openjdk-amd64
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = OpenJDK Runtime Environment
+	java.runtime.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 11
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Ubuntu
+	java.vendor.url = https://ubuntu.com/
+	java.vendor.url.bug = https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+	java.version = 11.0.9
+	java.version.date = 2020-10-20
+	java.vm.compressedOopsMode = 32-bit
+	java.vm.info = mixed mode, sharing
+	java.vm.name = OpenJDK 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 11
+	java.vm.vendor = Ubuntu
+	java.vm.version = 11.0.9+11-Ubuntu-0ubuntu1.20.04
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.domain.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain
+	jboss.domain.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration
+	jboss.home.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	jboss.host.name = mi3074
+	jboss.modules.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = master:load-balancer
+	jboss.qualified.host.name = mi3074
+	jboss.server.base.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer
+	jboss.server.config.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/configuration
+	jboss.server.data.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data
+	jboss.server.deploy.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/content
+	jboss.server.log.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log
+	jboss.server.name = load-balancer
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp
+	jdk.debug = release
+	line.separator = 
+
+	logging.configuration = file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties
+	module.path = /home/presta/Documents/keycloak/build/resources/keycloak-11/modules
+	org.jboss.resolver.warning = true
+	os.arch = amd64
+	os.name = Linux
+	os.version = 5.4.0-26-generic
+	path.separator = :
+	sun.arch.data.model = 64
+	sun.boot.library.path = /usr/lib/jvm/java-11-openjdk-amd64/lib
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/presta/Documents/keycloak/build/resources/keycloak-11/jboss-modules.jar -mp /home/presta/Documents/keycloak/build/resources/keycloak-11/modules org.jboss.as.server
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = FR
+	user.dir = /home/presta/Documents/keycloak/build/resources/keycloak-11
+	user.home = /home/presta
+	user.language = fr
+	user.name = presta
+	user.timezone = Pacific/Noumea
+2020-11-20 14:42:02,280 DEBUG [org.jboss.as.config] (MSC service thread 1-2) VM Arguments: --add-exports=java.base/sun.nio.ch=ALL-UNNAMED --add-exports=jdk.unsupported/sun.reflect=ALL-UNNAMED --add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED -D[Server:load-balancer] -D[pcid:659737622] -Xms64m -Xmx512m -XX:MetaspaceSize=96m -XX:MaxMetaspaceSize=256m -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true -Djboss.home.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11 -Djboss.modules.system.pkgs=org.jboss.byteman -Djboss.server.log.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/log -Djboss.server.temp.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/tmp -Djboss.server.data.dir=/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data -Dlogging.configuration=file:/home/presta/Documents/keycloak/build/resources/keycloak-11/domain/servers/load-balancer/data/logging.properties 
+2020-11-20 14:42:02,450 INFO  [org.xnio] (MSC service thread 1-5) XNIO version 3.8.1.Final
+2020-11-20 14:42:02,466 INFO  [org.xnio.nio] (MSC service thread 1-5) XNIO NIO Implementation Version 3.8.1.Final
+2020-11-20 14:42:02,518 INFO  [org.jboss.remoting] (MSC service thread 1-8) JBoss Remoting version 5.0.18.Final
+2020-11-20 14:42:02,897 INFO  [org.wildfly.security] (ServerService Thread Pool -- 2) ELY00001: WildFly Elytron version 1.12.1.Final
+2020-11-20 14:42:04,869 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 5) WFLYIO001: Worker 'default' has auto-configured to 8 IO threads with 64 max task threads based on your 4 available processors
+2020-11-20 14:42:04,906 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0003: Undertow 2.1.3.Final starting
+2020-11-20 14:42:04,943 WARN  [org.wildfly.clustering.web.undertow] (ServerService Thread Pool -- 25) WFLYCLWEBUT0007: No routing provider found for default-server; using legacy provider based on static configuration
+2020-11-20 14:42:05,044 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0012: Started server default-server.
+2020-11-20 14:42:05,062 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0018: Host default-host starting
+2020-11-20 14:42:05,143 INFO  [io.undertow] (MSC service thread 1-5) UT005039: Undertow starts mod_cluster proxy advertisements on /224.0.1.105:23364 with frequency 10000 ms
+2020-11-20 14:42:05,148 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTP listener management listening on 127.0.0.1:8090
+2020-11-20 14:42:05,148 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2020-11-20 14:42:05,198 INFO  [org.jboss.as.patching] (MSC service thread 1-2) WFLYPAT0050: Keycloak cumulative patch ID is: base, one-off patches include: none
+2020-11-20 14:42:05,277 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-7) WFLYDM0111: Keystore /home/presta/Documents/keycloak/build/resources/keycloak-11/domain/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2020-11-20 14:42:05,356 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2020-11-20 14:42:05,367 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) started in 4252ms - Started 75 of 90 services (41 services are lazy, passive or on-demand)
+2020-11-20 14:42:19,394 INFO  [io.undertow] (default task-1) UT005053: Registering node master:server-one, connection: ajp://127.0.0.1:8159/?#
+2020-11-20 14:42:19,401 INFO  [io.undertow] (default task-1) UT005045: Registering context /, for node master:server-one
+2020-11-20 14:42:19,427 INFO  [io.undertow] (default task-2) UT005045: Registering context /wildfly-services, for node master:server-one
+2020-11-20 14:42:29,490 INFO  [io.undertow] (default task-1) UT005045: Registering context /auth, for node master:server-one
+2020-11-20 14:42:52,756 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2020-11-20 14:42:52,764 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2020-11-20 14:42:52,776 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener default suspending
+2020-11-20 14:42:52,778 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2020-11-20 14:42:52,778 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTP listener management suspending
+2020-11-20 14:42:52,778 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTP listener management stopped, was bound to 127.0.0.1:8090
+2020-11-20 14:42:52,786 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0019: Host default-host stopping
+2020-11-20 14:42:52,826 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0004: Undertow 2.1.3.Final stopping
+2020-11-20 14:42:52,897 INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) stopped in 109ms
+2020-11-20 14:51:23,382 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2020-11-20 14:51:23,386 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) started in 6258ms - Started 75 of 90 services (41 services are lazy, passive or on-demand)
+2020-11-20 14:51:44,415 INFO  [io.undertow] (default task-1) UT005053: Registering node master:server-one, connection: ajp://127.0.0.1:8159/?#
+2020-11-20 14:51:44,429 INFO  [io.undertow] (default task-2) UT005045: Registering context /, for node master:server-one
+2020-11-20 14:51:44,432 INFO  [io.undertow] (default task-1) UT005045: Registering context /wildfly-services, for node master:server-one
+2020-11-20 14:51:54,474 INFO  [io.undertow] (default task-2) UT005045: Registering context /auth, for node master:server-one
+2020-11-20 14:56:29,241 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0272: Suspending server
+2020-11-20 14:59:21,710 INFO  [org.jboss.as.server] (Thread-1) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2020-11-20 14:59:21,721 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0008: Undertow HTTP listener default suspending
+2020-11-20 14:59:21,725 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2020-11-20 14:59:21,728 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0008: Undertow HTTP listener management suspending
+2020-11-20 14:59:21,730 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0007: Undertow HTTP listener management stopped, was bound to 127.0.0.1:8090
+2020-11-20 14:59:21,731 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0019: Host default-host stopping
+2020-11-20 14:59:21,738 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0004: Undertow 2.1.3.Final stopping
+2020-11-20 14:59:21,772 INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: Keycloak 11.0.3 (WildFly Core 12.0.3.Final) stopped in 46ms
