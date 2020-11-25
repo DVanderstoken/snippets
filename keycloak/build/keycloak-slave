@@ -1,2 +1,2 @@
 FROM keycloak-master:latest
-ENTRYPOINT ["./keycloak/bin/domain.sh", "--host-config=host-slave.xml", "-b=keycloak-slave", "--master-address=keycloak-master", "-Djboss.domain.master.protocol=remote+http", "-Djboss.domain.master.address=keycloak-master", "-Djboss.domain.master.port=9990"]
+ENTRYPOINT ["./keycloak/bin/domain.sh", "--host-config=host-slave.xml", "-b=keycloak-slave", "--master-address=keycloak-master", "-Djboss.domain.master.address=keycloak-master"]

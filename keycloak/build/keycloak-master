@@ -4,4 +4,12 @@ EXPOSE 9999/tcp
 EXPOSE 9999/udp
 EXPOSE 9990/tcp
 EXPOSE 9990/udp
-ENTRYPOINT ["./keycloak/bin/domain.sh",  "--host-config=host-master.xml", "-b=keycloak-master", "--master-address=keycloak-master"]
+EXPOSE 8080/tcp
+EXPOSE 8080/udp
+EXPOSE 8090/tcp
+EXPOSE 8090/udp
+EXPOSE 8230/tcp
+EXPOSE 8230/udp
+EXPOSE 8159/tcp
+EXPOSE 8159/udp
+ENTRYPOINT ["./keycloak/bin/domain.sh",  "--host-config=host-master.xml", "-b=keycloak-master", "--master-address=keycloak-master", "-Djboss.bind.address=keycloak-master", "-Djboss.bind.address.management=keycloak-master"]
