@@ -1,0 +1,14 @@
+.preview-container {
+  margin: 20px auto!important;
+}
+
+.preview {
+  width: 100%!important;
+  margin: 10px auto!important;
+  flex-direction: row!important;
+}
+
+pdf-viewer {
+  display: block;
+  height: 80vh;
+}

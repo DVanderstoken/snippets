@@ -6,6 +6,7 @@
 - [Personnaliser le theme Bootstrap en fonction de l'environnement d'exécution](./angular/test-stylesheet-env-switch/README.md)
 - [POC cartographie](./angular/cartographie-demo/README.md)
 - [Supprimer les règles CSS inutilisées](./angular/purifyCSS-HowTo/README.md)
+- [Miniature d'un fichier PDF téléversé](./angular/PDF%20thumbnail%20preview/README.md)
 
 #### Java
 - [Génération de document PDF à partir des moteurs de templating FreeMarker 2 et Thymeleaf](./java/thymeleaf_or_freemarker_to_PDF/README.md)
@@ -16,6 +17,7 @@
 
 #### Docker
 - [Utilisation de containers Docker pour valider les migrations Flyway (par exemple)](./java/testcontainers/README.md)
+- [POC Keycloak](./keycloak/README.md)
 
 #### REST (REpresentational State Transfer)
 - [Principes fondamentaux](./général/Fondamentaux%20REST/README.md)

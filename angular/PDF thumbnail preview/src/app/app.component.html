@@ -1,0 +1,25 @@
+<ng-template mat-tab-label>
+  <div fxLayout fxLayoutAlign="start center" fxLayoutGap="5px">
+    <span>Modèle</span>
+  </div>
+</ng-template>
+<div *ngIf="!fileContent">
+  <mat-form-field>
+    <ngx-mat-file-input [formControl]="form.controls['templateFile']" [multiple]="false"
+                        accept="application/pdf" placeholder="Choisir un fichier..."
+                        (change)="onFileSelected()">
+      <mat-icon ngxMatAttachFileIcon>folder</mat-icon>
+    </ngx-mat-file-input>
+  </mat-form-field>
+</div>
+<div fxLayout="column" fsFlex="100%"class="preview-container">
+  <div *ngIf="fileContent" fxLayout="row" fxLayoutAlign="center center" class="preview">
+    <pdf-viewer [src]="fileContent" [original-size]="false" [show-all]="false" [page]="0" [zoom]="0.75"
+                [zoom-scale]="'page-height'"></pdf-viewer>
+  </div>
+  <div *ngIf="fileContent" fxLayout="row" fxLayoutAlign="center center" class="preview">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+      <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+    </button>
+  </div>
+</div>
